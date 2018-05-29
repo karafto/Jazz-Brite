@@ -2,14 +2,14 @@
  
 <table>
   <tr>
-    <th>Creator ID</th>
+    <th>Creator</th>
     <th>description</th>
     <th></th>
   </tr>
  
   <% @events.each do |event| %>
     <tr>
-      <td><%= event.creator_id %></td>
+      <td><%= event.user.name %></td>
       <td><%= event.description %></td>
       <td><%= link_to 'Show', event_path(event) %></td>
     </tr>
