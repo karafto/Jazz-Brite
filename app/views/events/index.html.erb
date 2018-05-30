@@ -3,13 +3,15 @@
 <table>
   <tr>
     <th>Creator</th>
-    <th>description</th>
+    <th></th>
+    <th>Description</th>
     <th></th>
   </tr>
  
   <% @events.each do |event| %>
     <tr>
       <td><%= event.user.name %></td>
+      <td><%= link_to 'Show', event.user %></td>
       <td><%= event.description %></td>
       <td><%= link_to 'Show', event_path(event) %></td>
     </tr>

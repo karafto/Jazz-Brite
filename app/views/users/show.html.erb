@@ -1,0 +1,21 @@
+<p>
+Profile for: <%= @user.name %>
+</p>
+
+<% if @user.events.any? %>
+  <table>
+    <tr>
+      <th>Created Events</th>
+      <th></th>
+    </tr>
+   
+    <% @user.events.each do |event| %>
+      <tr>
+        <td><%= event.description %></td>
+        <td><%= link_to 'Show', event_path(event) %></td>
+      </tr>
+    <% end %>
+  </table>
+<% else %>
+  <p> No events created. </p>
+<% end %>
