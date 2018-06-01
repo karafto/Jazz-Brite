@@ -6,9 +6,9 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = current_user.events.build(post_params)
+    @event = current_user.events.build(event_params)
       if @event.save
-        redirect_to events_path
+        redirect_to @event
       else
         render :new
       end
@@ -27,7 +27,7 @@ class EventsController < ApplicationController
   end
 
   private
-    def post_params
+    def event_params
       params.require(:event).permit(:description)
     end
 end

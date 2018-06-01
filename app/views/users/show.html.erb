@@ -19,3 +19,20 @@ Profile for: <%= @user.name %>
 <% else %>
   <p> No events created. </p>
 <% end %>
+
+  <table>
+    <tr>
+      <th>Events attending</th>
+      <th></th>
+    </tr>
+    <% if @user.attended_events.any? %>
+      <% @user.attended_events.each do |event| %>
+        <tr>
+          <td><%= event.description %></td>
+          <td><%= link_to 'Show', event_path(event) %></td>
+        </tr>
+      <% end %>
+    <% else %>
+      <td> Not attending any events. </td>
+    <% end %>
+  </table>

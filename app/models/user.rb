@@ -10,4 +10,9 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, authentication_keys: [:name]
+
+  def attend(event)
+    active_rsvps.create(attended_event_id: event.id)
+  end
+
 end
