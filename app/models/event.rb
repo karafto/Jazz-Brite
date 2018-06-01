@@ -4,4 +4,5 @@ class Event < ApplicationRecord
   has_many :attendees, through: :passive_rsvps, source: :attendee
 
   validates :description, presence: true
+
 end
