@@ -1,19 +1,47 @@
-<h1>Listing events</h1>
+<h1>All Upcoming Events</h1>
  
 <table>
   <tr>
     <th>Creator</th>
-    <th></th>
+    <th>Title</th>
     <th>Description</th>
-    <th></th>
+    <th>Location</th>
+    <th>Date</th>
   </tr>
  
-  <% @events.each do |event| %>
-    <tr>
-      <td><%= event.user.name %></td>
-      <td><%= link_to 'Show', event.user %></td>
-      <td><%= event.description %></td>
-      <td><%= link_to 'Show', event_path(event) %></td>
-    </tr>
+  <% if Event.upcoming.any? %>
+    <% Event.upcoming.each do |event| %>
+      <tr>
+        <td><%= link_to event.user.name, event.user %></td>
+        <td><%= link_to event.title, event_path(event) %></td>
+        <td><%= event.description %></td>
+        <td><%= event.location %></td>
+        <td><%= event.date %></td>
+      </tr>
+    <% end %>
+  <% end %>
+</table>
+
+<h1>All Past Events</h1>
+ 
+<table>
+  <tr>
+    <th>Creator</th>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Location</th>
+    <th>Date</th>
+  </tr>
+ 
+  <% if Event.past.any? %>
+    <% Event.past.each do |event| %>
+      <tr>
+        <td><%= link_to event.user.name, event.user %></td>
+        <td><%= link_to event.title, event_path(event) %></td>
+        <td><%= event.description %></td>
+        <td><%= event.location %></td>
+        <td><%= event.date %></td>
+      </tr>
+    <% end %>
   <% end %>
 </table>

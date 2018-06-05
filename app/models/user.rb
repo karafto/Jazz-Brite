@@ -14,5 +14,12 @@ class User < ApplicationRecord
   def attend(event)
     active_rsvps.create(attended_event_id: event.id)
   end
+  
+  def upcoming_events
+    attended_events.where("date >= ?", Time.now).order("date ASC")
+  end
 
+  def past_events
+    attended_events.where("date < ?", Time.now).order("date DESC")
+  end
 end

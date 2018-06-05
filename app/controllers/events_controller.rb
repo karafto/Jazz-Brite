@@ -8,6 +8,7 @@ class EventsController < ApplicationController
   def create
     @event = current_user.events.build(event_params)
       if @event.save
+        flash[:notice] = "Event Created"
         redirect_to @event
       else
         render :new
@@ -15,15 +16,22 @@ class EventsController < ApplicationController
   end
 
   def index
-    @events = Event.all
   end
 
   def show
     @event = Event.find(params[:id])
   end
+  
   def edit
   end
-  def delete
+  
+  def destroy
+    @event = Event.find(params[:id])
+    if current_user.id == @event.user_id
+      @event.destroy
+      flash[:notice] = "Event Deleted"
+      redirect_to current_user
+    end
   end
 
   private

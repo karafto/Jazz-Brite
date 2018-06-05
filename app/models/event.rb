@@ -4,5 +4,15 @@ class Event < ApplicationRecord
   has_many :attendees, through: :passive_rsvps, source: :attendee
 
   validates :description, presence: true
+  validates :title, presence: true
+  validates :location, presence: true
+
+  def self.upcoming
+    self.where("date >= ?", Time.now).order("date ASC")
+  end
+
+  def self.past
+    self.where("date < ?", Time.now).order("date DESC")
+  end
 
 end

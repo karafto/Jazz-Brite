@@ -2,37 +2,60 @@
 Profile for: <%= @user.name %>
 </p>
 
-<% if @user.events.any? %>
-  <table>
-    <tr>
-      <th>Created Events</th>
-      <th></th>
-    </tr>
-   
-    <% @user.events.each do |event| %>
-      <tr>
-        <td><%= event.description %></td>
-        <td><%= link_to 'Show', event_path(event) %></td>
-      </tr>
-    <% end %>
-  </table>
-<% else %>
-  <p> No events created. </p>
-<% end %>
+<table>
+    <th>Created Events</th>
+<table>
+ 
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Location</th>
+    <th>Date</th>
+  </tr>
+
+  <% if @events.any? %>
+      <% @events.each do |event| %>
+        <tr>
+          <td><%= event.title %></td>
+          <td><%= link_to event.description, event_path(event) %></td>
+          <td><%= event.location %></td>
+          <td><%= event.date %></td>
+        </tr>
+      <% end %>
+  <% else %>
+    <p> No events created. </p>
+  <% end %>
+<table>
 
   <table>
     <tr>
-      <th>Events attending</th>
+      <th>Past Evemts</th>
       <th></th>
     </tr>
-    <% if @user.attended_events.any? %>
-      <% @user.attended_events.each do |event| %>
+    <% if @user.past_events.any? %>
+      <% @user.past_events.each do |event| %>
         <tr>
-          <td><%= event.description %></td>
-          <td><%= link_to 'Show', event_path(event) %></td>
+          <td><%= link_to event.description, event_path(event) %></td>
         </tr>
       <% end %>
     <% else %>
-      <td> Not attending any events. </td>
+      <td> No events to show. </td>
+    <% end %>
+  </table>
+
+  <table>
+    <tr>
+      <th>Upcoming Events</th>
+      <th></th>
+    </tr>
+    <% if @user.upcoming_events.any? %>
+      <% @user.upcoming_events.each do |event| %>
+        <tr>
+          <td><%= link_to event.description, event_path(event) %></td>
+        </tr>
+      <% end %>
+    <% else %>
+      <td> No upcoming events. </td>
     <% end %>
   </table>

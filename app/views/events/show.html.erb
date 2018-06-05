@@ -1,12 +1,26 @@
 <p>
+  <strong>Title:</strong>
+  <%= @event.title %>
+</p>
+
+<p>
   <strong>Description:</strong>
   <%= @event.description %>
 </p>
 
 <p>
+  <strong>Location:</strong>
+  <%= @event.location %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @event.date %>
+</p>
+
+<p>
   <strong>Creator:</strong>
-  <%= @event.user.name %>
-  <%= link_to 'Show', @event.user %>
+  <%= link_to @event.user.name, @event.user %>
 </p>
 
 <p>
@@ -16,8 +30,15 @@
 <% end %>
 </p>
 
+<p>
+<% if current_user.id == @event.user_id %>
+      <%= link_to "Delete Event", @event, method: :delete %>
+    <% end %>
+</p>
 
-<%= form_for(current_user.active_rsvps.build, remote: true) do |f| %>
-  <div><%= hidden_field_tag :attended_event_id, @event.id %></div>
-  <%= f.submit "Attend Event" %>
+<% unless current_user.id == @event.user_id %>
+  <%= form_for(current_user.active_rsvps.build, remote: true) do |f| %>
+    <div><%= hidden_field_tag :attended_event_id, @event.id %></div>
+    <%= f.submit "Attend Event" %>
+  <% end %>
 <% end %>
