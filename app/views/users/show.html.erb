@@ -1,15 +1,12 @@
 <p>
-Profile for: <%= @user.name %>
+Profile for: <strong><%= @user.name %></strong>
 </p>
 
-<table>
-    <th>Created Events</th>
-<table>
+<h1>Created Events</h1>
  
 <table>
   <tr>
     <th>Title</th>
-    <th>Description</th>
     <th>Location</th>
     <th>Date</th>
   </tr>
@@ -17,8 +14,7 @@ Profile for: <%= @user.name %>
   <% if @events.any? %>
       <% @events.each do |event| %>
         <tr>
-          <td><%= event.title %></td>
-          <td><%= link_to event.description, event_path(event) %></td>
+          <td><%= link_to event.title, event_path(event) %></td>
           <td><%= event.location %></td>
           <td><%= event.date %></td>
         </tr>
@@ -28,15 +24,20 @@ Profile for: <%= @user.name %>
   <% end %>
 <table>
 
-  <table>
-    <tr>
-      <th>Past Evemts</th>
-      <th></th>
+<h1>Past Events</h1>
+ 
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Location</th>
+    <th>Date</th>
     </tr>
     <% if @user.past_events.any? %>
       <% @user.past_events.each do |event| %>
         <tr>
-          <td><%= link_to event.description, event_path(event) %></td>
+          <td><%= link_to event.title, event_path(event) %></td>
+          <td><%= event.location %></td>
+          <td><%= event.date %></td>
         </tr>
       <% end %>
     <% else %>
@@ -44,18 +45,23 @@ Profile for: <%= @user.name %>
     <% end %>
   </table>
 
-  <table>
-    <tr>
-      <th>Upcoming Events</th>
-      <th></th>
+<h1>Upcoming Events</h1>
+ 
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Location</th>
+    <th>Date</th>
     </tr>
     <% if @user.upcoming_events.any? %>
       <% @user.upcoming_events.each do |event| %>
         <tr>
-          <td><%= link_to event.description, event_path(event) %></td>
+          <td><%= link_to event.title, event_path(event) %></td>
+          <td><%= event.location %></td>
+          <td><%= event.date %></td>
         </tr>
       <% end %>
     <% else %>
-      <td> No upcoming events. </td>
+      <td> No events to show. </td>
     <% end %>
   </table>

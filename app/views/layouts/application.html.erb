@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>JazzEvents</title>
+    <title>Jazz Events</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,23 +9,27 @@
   </head>
 
   <body>
-  
-	<% if user_signed_in? %>
-	  Logged in as <strong><%= current_user.name %></strong>.
-    <%= link_to 'My Profile', current_user %> |
-	  <%= link_to 'Edit Account', edit_user_registration_path %> |
-	  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-	<% else %>
-	  <%= link_to "Sign up", new_user_registration_path %> |
-	  <%= link_to "Login", new_user_session_path %>
-	<% end %>
-    <p>
+
+  	<% if user_signed_in? %>
+  	  Logged in as <strong><%= current_user.name %></strong>.
+      <%= link_to 'My Profile', current_user %> |
+  	  <%= link_to 'Edit Account', edit_user_registration_path %> |
+  	  <%= link_to "Logout", destroy_user_session_path, method: :delete %> |
+  	<% else %>
+  	  <%= link_to "Sign up", new_user_registration_path %> |
+  	  <%= link_to "Login", new_user_session_path %> |
+  	<% end %>
       <%= link_to 'All Events', events_path %> |
       <%= link_to 'Create Event', new_event_path %>
-    </p>
+      
+      <p>
+      	<div class="container">
+          <% flash.each do |message_type, message| %>
+            <div class="alert alert-<%= message_type %>"><%= message %></div>
+          <% end %>
+        </div>
+      </p>
 
-  	<p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
 </html>

@@ -14,6 +14,10 @@ class User < ApplicationRecord
   def attend(event)
     active_rsvps.create(attended_event_id: event.id)
   end
+
+  def unattend(event)
+    active_rsvps.find_by(attended_event_id: event.id).destroy
+  end
   
   def upcoming_events
     attended_events.where("date >= ?", Time.now).order("date ASC")
@@ -21,5 +25,9 @@ class User < ApplicationRecord
 
   def past_events
     attended_events.where("date < ?", Time.now).order("date DESC")
+  end
+
+  def attending?(event)
+    attended_events.include?(event)
   end
 end
