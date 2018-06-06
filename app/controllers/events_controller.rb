@@ -20,6 +20,9 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    if Event.past.include?(@event)
+      flash[:info] = "This event has ended."
+    end
   end
   
   def edit
@@ -28,7 +31,8 @@ class EventsController < ApplicationController
 
   def update
     @event = Event.find(params[:id])
-    if authorized?(@event) && @event.update(event_params)
+    if authorized?(@event) && Event.upcoming.include?(@event) 
+      @event.update(event_params)
       flash[:success] = "Event Updated"
       redirect_to @event
     end

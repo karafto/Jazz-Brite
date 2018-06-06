@@ -32,19 +32,23 @@
 
 <p>
   <% if current_user.id == @event.user_id %>
-    <%= link_to "Edit Event", edit_event_path(@event) %> |
+    <% if Event.upcoming.include?(@event) %>
+      <%= link_to "Edit Event", edit_event_path(@event) %> |
+    <% end %>
     <%= link_to "Delete Event", @event, method: :delete %>
 </p>
   <% else %>
-    <% if current_user.attending?(@event) %>
-      <%= form_for(current_user.active_rsvps.find_by(attended_event_id: @event.id), html: { method: :delete }, remote: true) do |f| %>
-      <div><%= hidden_field_tag :attended_event_id, @event.id %></div>
-      <%= f.submit "Unattend Event" %>
-      <% end %>
-    <% else %>
-      <%= form_for(current_user.active_rsvps.build, remote: true) do |f| %>
-      <div><%= hidden_field_tag :attended_event_id, @event.id %></div>
-      <%= f.submit "Attend Event" %>
+    <% if Event.upcoming.include?(@event) %>
+      <% if current_user.attending?(@event) %>
+        <%= form_for(current_user.active_rsvps.find_by(attended_event_id: @event.id), html: { method: :delete }, remote: true) do |f| %>
+        <div><%= hidden_field_tag :attended_event_id, @event.id %></div>
+        <%= f.submit "Unattend Event" %>
+        <% end %>
+      <% else %>
+        <%= form_for(current_user.active_rsvps.build, remote: true) do |f| %>
+        <div><%= hidden_field_tag :attended_event_id, @event.id %></div>
+        <%= f.submit "Attend Event" %>
+        <% end %>
       <% end %>
     <% end %>
   <% end %>

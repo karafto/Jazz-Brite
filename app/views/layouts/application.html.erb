@@ -14,10 +14,10 @@
   	  Logged in as <strong><%= current_user.name %></strong>.
       <%= link_to 'My Profile', current_user %> |
   	  <%= link_to 'Edit Account', edit_user_registration_path %> |
-  	  <%= link_to "Logout", destroy_user_session_path, method: :delete %> |
+  	  <%= link_to "Sign Out", destroy_user_session_path, method: :delete %> |
   	<% else %>
-  	  <%= link_to "Sign up", new_user_registration_path %> |
-  	  <%= link_to "Login", new_user_session_path %> |
+  	  <%= link_to "Sign Up", new_user_registration_path %> |
+  	  <%= link_to "Sign In", new_user_session_path %> |
   	<% end %>
       <%= link_to 'All Events', events_path %> |
       <%= link_to 'Create Event', new_event_path %>
