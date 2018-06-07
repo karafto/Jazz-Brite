@@ -42,7 +42,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     if authorized?(@event)
       @event.destroy
-      flash[:success] = "Event Deleted"
+      flash[:warning] = "Event Deleted"
       redirect_to current_user
     end
   end
