@@ -1,2 +1,15 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+
+
+body {
+  padding-bottom: 10px;
+}
+
+.navbar {
+  margin-bottom: 10px;
+  background-color: #ccccff;
+  font-weight: 700;
+  text-transform: uppercase;
+}
