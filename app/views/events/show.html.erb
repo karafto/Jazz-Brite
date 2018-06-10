@@ -30,6 +30,8 @@
 <% end %>
 </p>
 
+
+<% if current_user %>
 <p>
   <% if current_user.id == @event.user_id %>
     <% if Event.upcoming.include?(@event) %>
@@ -37,18 +39,23 @@
     <% end %>
     <%= link_to "Delete Event", @event, method: :delete %>
 </p>
+<p>
   <% else %>
     <% if Event.upcoming.include?(@event) %>
       <% if current_user.attending?(@event) %>
         <%= form_for(current_user.active_rsvps.find_by(attended_event_id: @event.id), html: { method: :delete }, remote: true) do |f| %>
         <div><%= hidden_field_tag :attended_event_id, @event.id %></div>
-        <%= f.submit "Unattend Event" %>
+        <%= f.submit "Leave Event", class: "btn" %>
         <% end %>
       <% else %>
         <%= form_for(current_user.active_rsvps.build, remote: true) do |f| %>
         <div><%= hidden_field_tag :attended_event_id, @event.id %></div>
-        <%= f.submit "Attend Event" %>
+        <%= f.submit "Attend Event", class: "btn" %>
         <% end %>
       <% end %>
     <% end %>
   <% end %>
+<% end %>
+</p>
+
+
