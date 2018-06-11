@@ -1,8 +1,12 @@
+<div class="container text-center">
+
+<h2>Create Your Event</h2>
+
 <%= form_for @event do |f| %>
 
   <% if @event.errors.any? %>
     <div id="error_explanation">
-      <div class="alert alert-danger">
+      <div class="alert alert-warning">
       The form contains <%= pluralize(@event.errors.count, "error") %>.
     </div>
       <ul>
@@ -13,21 +17,31 @@
     </div>
   <% end %>
 
-  <p>
+  <div class="field">
     <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </p>
-  <p>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="field">
     <%= f.label :description %><br>
-    <%= f.text_field :description %>
-  </p>
-  <p>
+    <%= f.text_field :description, class: "form-control" %>
+  </div>
+
+  <div class="field">
     <%= f.label :location %><br>
-    <%= f.text_field :location %>
-  </p>
-  <p>
+    <%= f.text_field :location, class: "form-control" %>
+  </div>
+
+
+  <div class="field">
     <%= f.label :date %><br>
-    <%= f.datetime_select :date %>
-  </p>
-  <%= f.submit "Submit" %>
+    <%= f.datetime_select :date, options = {ampm: true, minute_step: 5, start_year: Date.today.year, end_year: Date.today.year + 5, order: [:month, :day, :year], default: Time.now} %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit "Submit", class: "btn btn-lg" %>
+  </div>
+
 <% end %>
+
+</div>

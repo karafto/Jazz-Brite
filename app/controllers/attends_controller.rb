@@ -14,7 +14,7 @@ class AttendsController < ApplicationController
     @event = Event.find(params[:attended_event_id])
     if Event.upcoming.include?(@event)
       current_user.unattend(@event)
-      flash[:warning] = "You're no longer going to this event."
+      flash[:warning] = "You have left this event."
       redirect_to @event
     end
   end
