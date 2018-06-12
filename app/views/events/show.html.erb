@@ -15,12 +15,16 @@
 
 <p>
   <strong>Date:</strong>
-  <%= @event.date %>
+  <%= @event.date.strftime("%a, %b %d, %Y, %l:%M %p") %>
 </p>
 
 <p>
   <strong>Creator:</strong>
   <%= link_to @event.user.name, @event.user %>
+</p>
+
+<p>
+  <%= image_tag @event.picture.url if @event.picture? %>
 </p>
 
 
@@ -33,7 +37,7 @@
     <% end %>
     <%= link_to "Delete Event", @event, method: :delete, data: { confirm: "Are you sure?" } %>
 </p>
-<p>
+
   <% else %>
     <% if Event.upcoming.include?(@event) %>
       <% if current_user.attending?(@event) %>
@@ -49,8 +53,11 @@
       <% end %>
     <% end %>
   <% end %>
+
+<% else %>
+  <p>To start attending events, <%= link_to "Log In", new_user_session_path %> or <%= link_to "Create an Account", new_user_registration_path %></p>
 <% end %>
-</p>
+
 
 <p>
   <strong>Attending:</strong>

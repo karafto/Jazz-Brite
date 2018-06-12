@@ -4,7 +4,6 @@
   <tr>
     <th>Creator</th>
     <th>Title</th>
-    <th>Description</th>
     <th>Location</th>
     <th>Date</th>
   </tr>
@@ -14,9 +13,8 @@
       <tr>
         <td><%= link_to event.user.name, event.user %></td>
         <td><%= link_to event.title, event_path(event) %></td>
-        <td><%= event.description %></td>
         <td><%= event.location %></td>
-        <td><%= event.date %></td>
+        <td><%= event.date.strftime("%a, %b %d %Y at %I:%M %p") %></td>
       </tr>
     <% end %>
   <% end %>
@@ -28,7 +26,6 @@
   <tr>
     <th>Creator</th>
     <th>Title</th>
-    <th>Description</th>
     <th>Location</th>
     <th>Date</th>
   </tr>
@@ -38,7 +35,6 @@
       <tr>
         <td><%= link_to event.user.name, event.user %></td>
         <td><%= link_to event.title, event_path(event) %></td>
-        <td><%= event.description %></td>
         <td><%= event.location %></td>
         <td><%= event.date %></td>
       </tr>

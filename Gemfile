@@ -58,3 +58,11 @@ gem 'devise'
 gem 'bootstrap-sass', '~> 3.3.7'
 
 gem 'jquery-rails'
+
+gem 'carrierwave', '~> 1.0'
+
+gem 'mini_magick'
+
+group :production do
+  gem 'fog', '1.42'
+end
