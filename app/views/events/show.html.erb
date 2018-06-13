@@ -1,21 +1,15 @@
-<p>
-  <strong>Title:</strong>
+<h2>
   <%= @event.title %>
-</p>
+</h2>
 
 <p>
-  <strong>Description:</strong>
-  <%= @event.description %>
-</p>
-
-<p>
-  <strong>Location:</strong>
-  <%= @event.location %>
-</p>
-
-<p>
-  <strong>Date:</strong>
+  <span class="glyphicon glyphicon-calendar"></span>
   <%= @event.date.strftime("%a, %b %d, %Y, %l:%M %p") %>
+</p>
+
+<p>
+  <span class="glyphicon glyphicon-map-marker"></span>
+  <%= @event.location %>
 </p>
 
 <p>
@@ -28,14 +22,20 @@
 </p>
 
 
+<p>
+  <strong>Description:</strong>
+  <%= @event.description %>
+</p>
+
 
 <% if current_user %>
 <p>
   <% if current_user.id == @event.user_id %>
     <% if Event.upcoming.include?(@event) %>
-      <%= link_to "Edit Event", edit_event_path(@event) %> |
-    <% end %>
-    <%= link_to "Delete Event", @event, method: :delete, data: { confirm: "Are you sure?" } %>
+    <span class="glyphicon glyphicon-edit"></span>
+      <%= link_to " Edit", edit_event_path(@event) %>
+    <% end %> or 
+    <%= link_to "Delete", @event, method: :delete, data: { confirm: "Are you sure? This cannot be undone." } %> this Event
 </p>
 
   <% else %>
@@ -54,14 +54,21 @@
     <% end %>
   <% end %>
 
+
+
+
+
 <% else %>
   <p>To start attending events, <%= link_to "Log In", new_user_session_path %> or <%= link_to "Create an Account", new_user_registration_path %></p>
 <% end %>
 
+<% if @event.attendees.any? %>
 
-<p>
-  <strong>Attending:</strong>
+  <p><strong>Attending:</strong></p>
   <% @event.attendees.each do |attendee| %>
-  <p> <%= link_to attendee.name, attendee %> </p>
+  <li style="text-align:center; list-style-type; font-size: 17px;"> <%= link_to attendee.name, attendee %> </li>
 <% end %>
-</p>
+
+<% else %>
+<p>(No attendees yet)</p>
+<% end %>

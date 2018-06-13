@@ -4,7 +4,10 @@
 
 
 body {
-  padding-bottom: 10px;
+  padding-bottom: 70px;
+  padding-top: 65px;
+  padding-right: 200px;
+  padding-left: 200px;
   background-color: #fff;
 }
 
@@ -29,9 +32,9 @@ h1 {
 }
 
 h2 {
-  font-size: 1.6em;
+  font-size: 1.7em;
   margin-bottom: 25px;
-  margin-top: 40px;
+  margin-top: 25px;
 }
 
 p {
@@ -40,6 +43,7 @@ p {
   text-align: center;
   color: $gray-dark;
 }
+
 
 .field {
   max-width: 370px;

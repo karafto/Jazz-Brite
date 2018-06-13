@@ -6,6 +6,7 @@ class Event < ApplicationRecord
   validates :description, presence: true
   validates :title, presence: true
   validates :location, presence: true
+  validates :picture, presence: true
   validate  :picture_size
 
   def self.upcoming
