@@ -65,9 +65,8 @@
   <p>To start attending events, <%= link_to "Log In", new_user_session_path %> or <%= link_to "Create an Account", new_user_registration_path %></p>
 <% end %>
 
+<p><strong>Attending:</strong></p>
 <% if @event.attendees.any? %>
-
-  <p><strong>Attending:</strong></p>
   <% @event.attendees.each do |attendee| %>
   <li style="text-align:center; list-style-type; font-size: 18px;"> <%= link_to attendee.name, attendee %> </li>
 <% end %>

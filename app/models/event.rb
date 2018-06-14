@@ -10,11 +10,11 @@ class Event < ApplicationRecord
   validate  :picture_size
 
   def self.upcoming
-    self.where("date >= ?", Time.now).order("date ASC")
+    self.where("date >= ?", Time.zone.now).order("date ASC")
   end
 
   def self.past
-    self.where("date < ?", Time.now).order("date DESC")
+    self.where("date < ?", Time.zone.now).order("date DESC")
   end
 
   private
