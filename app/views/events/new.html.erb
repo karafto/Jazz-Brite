@@ -24,7 +24,7 @@
 
   <div class="field">
     <%= f.label :description %><br>
-    <%= f.text_field :description, class: "form-control" %>
+    <%= f.text_area :description, style: "resize: none;", rows: "8", class: "form-control" %>
   </div>
 
   <div class="field">
@@ -35,14 +35,14 @@
 
   <div class="field">
     <%= f.label :date %><br>
-    <%= f.datetime_select :date, options = {ampm: true, minute_step: 5, start_year: Date.today.year, end_year: Date.today.year + 5, order: [:month, :day, :year], default: Time.now} %>
+    <%= f.datetime_select :date, options = {ampm: true, minute_step: 5, start_year: Date.today.year, end_year: Date.today.year + 5, order: [:month, :day, :year], default: Time.now } %>
   </div>
 
   <div class="field">
   <%= f.label :picture %><br>
   <%= f.file_field :picture, accept: 'image/jpg,image/jpeg,image/gif,image/png', class: "btn" %>
 </div>
-  
+
   <div class="actions">
     <%= f.submit "Create!", class: "btn btn-lg" %>
   </div>

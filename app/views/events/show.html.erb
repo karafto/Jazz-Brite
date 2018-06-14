@@ -1,6 +1,15 @@
+<div class="container">
+
+
 <h2>
   <%= @event.title %>
 </h2>
+
+<p>
+  <strong>Creator:</strong>
+  <%= link_to @event.user.name, @event.user %>
+</p>
+
 
 <p>
   <span class="glyphicon glyphicon-calendar"></span>
@@ -12,10 +21,6 @@
   <%= @event.location %>
 </p>
 
-<p>
-  <strong>Creator:</strong>
-  <%= link_to @event.user.name, @event.user %>
-</p>
 
 <p>
   <%= image_tag @event.picture.url if @event.picture? %>
@@ -56,8 +61,6 @@
 
 
 
-
-
 <% else %>
   <p>To start attending events, <%= link_to "Log In", new_user_session_path %> or <%= link_to "Create an Account", new_user_registration_path %></p>
 <% end %>
@@ -66,9 +69,11 @@
 
   <p><strong>Attending:</strong></p>
   <% @event.attendees.each do |attendee| %>
-  <li style="text-align:center; list-style-type; font-size: 17px;"> <%= link_to attendee.name, attendee %> </li>
+  <li style="text-align:center; list-style-type; font-size: 18px;"> <%= link_to attendee.name, attendee %> </li>
 <% end %>
 
 <% else %>
 <p>(No attendees yet)</p>
 <% end %>
+
+</div>
