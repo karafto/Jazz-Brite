@@ -16,12 +16,17 @@ class EventsController < ApplicationController
   end
 
   def index
+    if request.fullpath.include?('past=true')
+      @events = Event.past.paginate(page: params[:page], per_page: 3)
+    else
+      @events = Event.upcoming.paginate(page: params[:page], per_page: 3)
+    end
   end
 
   def show
     @event = Event.find(params[:id])
     if Event.past.include?(@event)
-      flash[:info] = "This event has ended."
+      flash.now[:info] = "This event has ended."
     end
   end
   

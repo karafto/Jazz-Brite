@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" style="background-color:white; padding-right: 100px; padding-left: 100px; padding-bottom: 30px">
 
 
 <h2>
@@ -13,7 +13,7 @@
 
 <p>
   <span class="glyphicon glyphicon-calendar"></span>
-  <%= @event.date.strftime("%a, %b %d, %Y, %l:%M %p") %>
+  <%= @event.date.strftime("%a, %b %-d, %Y, %l:%M %p") %>
 </p>
 
 <p>
@@ -37,10 +37,14 @@
 <p>
   <% if current_user.id == @event.user_id %>
     <% if Event.upcoming.include?(@event) %>
-    <span class="glyphicon glyphicon-edit"></span>
-      <%= link_to " Edit", edit_event_path(@event) %>
-    <% end %> or 
-    <%= link_to "Delete", @event, method: :delete, data: { confirm: "Are you sure? This cannot be undone." } %> this Event
+      <span class="glyphicon glyphicon-edit"></span>
+        <%= link_to " Edit", edit_event_path(@event) %>
+      or 
+      <%= link_to "Delete", @event, method: :delete, data: { confirm: "Are you sure? This cannot be undone." } %> this Event
+    <% else %>
+      <span class="glyphicon glyphicon-remove"></span>
+      <%= link_to "Delete", @event, method: :delete, data: { confirm: "Are you sure? This cannot be undone." } %> this Event
+    <% end %>
 </p>
 
   <% else %>
@@ -72,7 +76,7 @@
 <% end %>
 
 <% else %>
-<p>(No attendees yet)</p>
+<p>(No attendees)</p>
 <% end %>
 
 </div>

@@ -4,16 +4,16 @@
 
 
 body {
-  padding-bottom: 70px;
+  padding-bottom: 40px;
   padding-top: 65px;
   padding-right: 200px;
   padding-left: 200px;
-  background-color: #fff;
+  background-color: hsl(240, 17%, 98%);
 }
 
 .navbar {
   margin-bottom: 12px;
-  background-color: #c7c7f5;
+  background-color: #becaf4;
   font-weight: 700;
   text-transform: uppercase;
 }
@@ -26,15 +26,17 @@ h1, h2, h3, h4, h5, h6 {
 
 }
 
-h1 {
-  font-size: 1.8em;
-  margin-bottom: 20px;
-}
+
 
 h2 {
   font-size: 1.8em;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   margin-top: 25px;
+}
+
+h3 {
+  font-size: 1.8em;
+  margin-bottom: 20px;
 }
 
 p {
@@ -76,3 +78,6 @@ p {
 }
 
 
+.alert {
+    font-weight: 700;
+}
