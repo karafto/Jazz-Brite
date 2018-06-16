@@ -6,13 +6,35 @@
     </div>
     <% if @events.any? %>
       <% @events.each do |event| %>
-        <div class="result content-div" style="background-color:white">
-          <div class="text-center">
+        <div class="result content-div" onclick="document.location='<%= event_path(event.id) %>'"; style="cursor: pointer;">
+          <div class="text-align:left">
             <hr>
-            <h3><%= link_to event.title, event %></h3>
-            <p>Creator: <%= link_to event.user.name, event.user %></p>
-            <p>Location: <%= event.location %></p>
-            <p>Date: <%= event.date.strftime("%d-%m-%Y") %></p>
+              <div class="media">
+                <div class="media-left" style="padding-left: 20px">
+                  <%= image_tag event.picture.thumb.url, alt: "event picture" if event.picture? %>
+                </div>
+                <div class="media-body">
+                  <h6 class="media-heading"><%= event.title %></h6>
+
+                  <p>
+                    <%= event.date.strftime("%a, %b %-d, %Y, %l:%M %p").upcase %></p>
+
+                  <p></span>
+                    <%= event.location %></p>
+
+                <div class="attendees">
+                  <% if Event.upcoming.include?(event) %>
+                    <% if event.attendees.count == 1 %>
+                      <p>1 User Is Going</p>
+                    <% elsif %>
+                      <% event.attendees.count > 1 %> 
+                      <p><%= event.attendees.count %> Users Are Going</p>
+                    <% end %>
+                  <% end %>
+                </div>
+
+              </div>
+              </div>
             <hr>
           </div>
         </div>

@@ -12,39 +12,35 @@
 
 
 <p>
-  <span class="glyphicon glyphicon-calendar"></span>
-  <%= @event.date.strftime("%a, %b %-d, %Y, %l:%M %p") %>
+  
+  <%= @event.date.strftime("%a, %b %-d, %Y, %l:%M %p").upcase %>
 </p>
 
 <p>
-  <span class="glyphicon glyphicon-map-marker"></span>
   <%= @event.location %>
 </p>
 
-
+<hr>
 <p>
-  <%= image_tag @event.picture.url if @event.picture? %>
+  <%= image_tag @event.picture.url, alt: "event picture" if @event.picture? %>
 </p>
-
-
+<hr>
 <p>
   <strong>Description:</strong>
   <%= @event.description %>
 </p>
-
+<hr>
 
 <% if current_user %>
 <p>
   <% if current_user.id == @event.user_id %>
-    <% if Event.upcoming.include?(@event) %>
+    
       <span class="glyphicon glyphicon-edit"></span>
         <%= link_to " Edit", edit_event_path(@event) %>
       or 
       <%= link_to "Delete", @event, method: :delete, data: { confirm: "Are you sure? This cannot be undone." } %> this Event
-    <% else %>
-      <span class="glyphicon glyphicon-remove"></span>
-      <%= link_to "Delete", @event, method: :delete, data: { confirm: "Are you sure? This cannot be undone." } %> this Event
-    <% end %>
+    
+    
 </p>
 
   <% else %>

@@ -29,5 +29,9 @@
     <%= f.label :date %><br>
     <%= f.datetime_select :date %>
   </p>
+  <p>
+  <%= f.label :picture %><br>
+  <%= f.file_field :picture, accept: 'image/jpg,image/jpeg,image/gif,image/png', class: "btn" %>
   <%= f.submit "Update" %>
+  </p>
 <% end %>

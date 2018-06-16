@@ -17,9 +17,9 @@ class EventsController < ApplicationController
 
   def index
     if request.fullpath.include?('past=true')
-      @events = Event.past.paginate(page: params[:page], per_page: 3)
+      @events = Event.past.paginate(page: params[:page], per_page: 4)
     else
-      @events = Event.upcoming.paginate(page: params[:page], per_page: 3)
+      @events = Event.upcoming.paginate(page: params[:page], per_page: 4)
     end
   end
 
@@ -47,7 +47,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     if authorized?(@event)
       @event.destroy
-      flash[:warning] = "Event Deleted"
+      flash[:info] = "Event Deleted"
       redirect_to current_user
     end
   end

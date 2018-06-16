@@ -18,7 +18,7 @@ body {
   text-transform: uppercase;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h6 {
   line-height: 1;
   text-align: center;
   color: $gray-light;
@@ -38,6 +38,15 @@ h3 {
   font-size: 1.8em;
   margin-bottom: 20px;
 }
+
+h6 {
+  font-size: 1.48em;
+  padding-bottom: 10px;
+  text-align: left;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
 
 p {
   font-size: 1.29em;
@@ -79,5 +88,36 @@ p {
 
 
 .alert {
-    font-weight: 700;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+  color: #31708f;
+  font-weight: 700;
+  }
+
+.alert-success {
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  color: #3c763d;
+  font-weight: 700;
+}
+
+.media-body {
+  padding-left: 20px;
+  p {
+    text-align: left;
+    line-height: 1.4em;
+    font-size: 1.25em;
+  }
+}
+
+.content-div {
+  background-color:white;
+}
+
+.attendees {
+  p {
+  font-size: 1.1em;
+  color: black;
+  font-weight: 700;
+  }
 }
