@@ -36,7 +36,7 @@ class EventsController < ApplicationController
 
   def update
     @event = Event.find(params[:id])
-    if authorized?(@event) && Event.upcoming.include?(@event) 
+    if authorized?(@event) 
       @event.update(event_params)
       flash[:success] = "Event Updated"
       redirect_to @event
