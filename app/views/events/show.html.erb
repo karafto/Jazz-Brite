@@ -1,4 +1,4 @@
-<div class="container" style="background-color:white; padding-right: 100px; padding-left: 100px; padding-bottom: 30px">
+<div class="container text-center" style="background-color:white; padding-right: 100px; padding-left: 100px; padding-bottom: 30px">
 <div class="row">
 
 <h2>
@@ -48,12 +48,12 @@
       <% if current_user.attending?(@event) %>
         <%= form_for(current_user.active_rsvps.find_by(attended_event_id: @event.id), html: { method: :delete }, remote: true) do |f| %>
         <div><%= hidden_field_tag :attended_event_id, @event.id %></div>
-        <div class="actions"><p><%= f.submit "Leave Event", class: "btn btn-lg" %></p></div>
+        <div class="actions"><%= f.submit "Leave Event", class: "btn btn-lg" %></div>
         <% end %>
       <% else %>
         <%= form_for(current_user.active_rsvps.build, remote: true) do |f| %>
         <div><%= hidden_field_tag :attended_event_id, @event.id %></div>
-        <div class="actions"><p><%= f.submit "Attend Event", class: "btn btn-lg" %></p></div>        
+        <div class="actions"><%= f.submit "Attend Event", class: "btn btn-lg" %></div>        
         <% end %>
       <% end %>
     <% end %>
