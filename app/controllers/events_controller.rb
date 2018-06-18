@@ -17,9 +17,9 @@ class EventsController < ApplicationController
 
   def index
     if request.fullpath.include?('past=true')
-      @events = Event.past.paginate(page: params[:page], per_page: 4)
+      @events = Event.past.paginate(page: params[:page], per_page: 7)
     else
-      @events = Event.upcoming.paginate(page: params[:page], per_page: 4)
+      @events = Event.upcoming.paginate(page: params[:page], per_page: 7)
     end
   end
 

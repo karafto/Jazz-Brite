@@ -22,7 +22,7 @@
 
                   <p></span>
                     <%= event.location %></p>
-
+                <br>    
                 <div class="attendees">
                   <% if Event.upcoming.include?(event) %>
                     <% if event.attendees.count == 1 %>
@@ -42,9 +42,7 @@
       <% end %>
     <% else %>
       <div class="result content-div">
-        <ul class="text-center">
-          <li><h2 class="text-center">No Events</h2></li>
-        </ul>
+          <h2 class="text-center">(No Events)</h2>
       </div>
     <% end %>
   </div>
