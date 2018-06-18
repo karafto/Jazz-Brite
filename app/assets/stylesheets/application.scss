@@ -1,21 +1,27 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-
-
-body {
-  padding-bottom: 40px;
-  padding-top: 65px;
-  padding-right: 200px;
-  padding-left: 200px;
+body, html {
+  height: 100%;
   background-color: hsl(240, 17%, 98%);
 }
 
+body {
+  padding-top: 50px;
+}
+
 .navbar {
-  margin-bottom: 12px;
   background-color: #becaf4;
   font-weight: 700;
   text-transform: uppercase;
+}
+
+.bg {
+    background-image: url("background_trumpet.jpg");
+    height: 71%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 h1, h2, h3, h4, h6 {
@@ -26,7 +32,11 @@ h1, h2, h3, h4, h6 {
 
 }
 
-
+h1 {
+  padding-top: 10px;
+  padding-bottom: 20px;
+  font-size: 3em;
+}
 
 h2 {
   font-size: 1.8em;
@@ -37,6 +47,11 @@ h2 {
 h3 {
   font-size: 1.8em;
   margin-bottom: 20px;
+}
+
+h4 {
+  font-size: 1.7em;
+  padding-bottom: 5px;
 }
 
 h6 {
@@ -51,6 +66,7 @@ h6 {
 p {
   font-size: 1.29em;
   line-height: 1.7em;
+  text-align: center;
   color: $gray-dark;
 }
 
@@ -82,11 +98,13 @@ p {
   text-align: center;
   ul {
     color: black;
-    margin-bottom: 26px;  }
+    margin-bottom: 26px;
+    list-style-position: inside;
+      }
 }
 
-
 .alert {
+  margin-top: 20px;
   background-color: #d9edf7;
   border-color: #bce8f1;
   color: #31708f;

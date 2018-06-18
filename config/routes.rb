@@ -9,5 +9,5 @@ Rails.application.routes.draw do
 
   resources :attends, only: [:create, :destroy]
  
-  root 'events#index'
+  root 'static_pages#home'
 end
