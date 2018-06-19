@@ -4,7 +4,7 @@ class User < ApplicationRecord
   has_many :attended_events, through: :active_rsvps, source: :attended_event
 
   validates :name, presence: true,
-                       length: { minimum: 2 },
+                       length: { minimum: 2, maximum: 50 },
                        uniqueness: true
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
