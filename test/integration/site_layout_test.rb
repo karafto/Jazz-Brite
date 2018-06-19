@@ -1,0 +1,17 @@
+require 'test_helper'
+
+class SiteLayoutTest < ActionDispatch::IntegrationTest
+  
+  test "layout links" do
+    get root_path
+    assert_template 'static_pages/home'
+    assert_select "a[href=?]", root_path
+    assert_select "a[href=?]", events_path, count: 2
+    assert_select "a[href=?]", new_event_path, count: 2
+    assert_select "a[href=?]", new_user_registration_path
+    assert_select "a[href=?]", new_user_session_path
+    get events_path
+    assert_select "a[href=?]", events_path(upcoming: true)
+    assert_select "a[href=?]", events_path(past: true)
+  end
+end

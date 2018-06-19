@@ -70,3 +70,5 @@ gem 'mini_magick'
 group :production do
   gem 'fog', '1.42'
 end
+
+gem 'rails-controller-testing'
