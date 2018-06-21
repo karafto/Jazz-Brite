@@ -11,6 +11,8 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                                          password_confirmation: "bar" } }
     end
     assert_template 'devise/registrations/new'
+    assert_select 'div#error_explanation'
+    assert_select 'div.field_with_errors'
   end
 
   test "valid signup information" do
@@ -23,7 +25,8 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     end
     follow_redirect!
     assert_template 'events/index'
+    assert_select 'div.alert'
+    assert_select 'a[href=?]', new_user_session_path, count: 0
+    assert_select 'a[href=?]', destroy_user_session_path
   end
-
-  
 end
