@@ -3,9 +3,11 @@ class Event < ApplicationRecord
   has_many :passive_rsvps, class_name: 'Attend', foreign_key: 'attended_event_id', dependent: :destroy
   has_many :attendees, through: :passive_rsvps, source: :attendee
   mount_uploader :picture, PictureUploader
+  validates :user_id, presence: true
   validates :description, presence: true
   validates :title, presence: true
   validates :location, presence: true
+  validates :date, presence: true
   validate  :picture_size
 
   def self.upcoming

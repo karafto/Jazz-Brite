@@ -40,6 +40,8 @@ class EventsController < ApplicationController
       @event.update(event_params)
       flash[:success] = "Event Updated"
       redirect_to @event
+    else
+      redirect_to events_path
     end
   end
   

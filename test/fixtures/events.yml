@@ -1,7 +1,41 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+event_1:
+  description: "description"
+  title: "title"
+  location: "location"
+  date: <%= 1.days.from_now %>
+  user: kevin
 
-# one:
-#   description: MyString
+event_2:
+  description: "description"
+  title: "title"
+  location: "location"
+  date: <%= 1.days.from_now %>
+  user: kevin
 
-# two:
-#   description: MyString
+event_3:
+  description: "description"
+  title: "title"
+  location: "location"
+  date: <%= 1.days.from_now %>
+  user: kevin
+
+event_4:
+  description: "description"
+  title: "title"
+  location: "location"
+  date: <%= 1.days.from_now %>
+  user: alex
+
+event_5:
+  description: "description"
+  title: "title"
+  location: "location"
+  date: <%= 1.days.from_now %>
+  user: alex
+
+event_6:
+  description: "description"
+  title: "title"
+  location: "location"
+  date: <%= 1.days.from_now %>
+  user: alex

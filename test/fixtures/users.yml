@@ -1,4 +1,9 @@
-bob:
-  name: Bob Example
-  email: bob@example.com
+kevin:
+  name: Kevin
+  email: kevin@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+
+alex:
+  name: Alex
+  email: alex@example.com
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>

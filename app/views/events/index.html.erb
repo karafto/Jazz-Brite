@@ -1,6 +1,7 @@
 <div class="container" style="padding-bottom: 20px; padding-top: 30px">
 <div class="row" >
   <div class="col-sm-8 col-sm-offset-2">
+    <br>
     <div class="btn-group btn-group-justified">
       <%= link_to "Upcoming Events", events_path(upcoming: true), class: "btn btn-primary btn-md" %>
       <%= link_to "Past Events", events_path(past: true), class: "btn btn-primary btn-md" %>
@@ -41,9 +42,10 @@
         </div>
       <% end %>
     <% else %>
-      <div class="result content-div">
-          <h2 class="text-center">(No Events)</h2>
-      </div>
+      
+          <hr>
+          <p>(no events)</p>
+      
     <% end %>
   </div>
 </div>

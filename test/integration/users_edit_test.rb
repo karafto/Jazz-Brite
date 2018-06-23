@@ -4,7 +4,7 @@ class UsersEditTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
 
   def setup
-    @user = users(:bob)
+    @user = users(:kevin)
     sign_in @user
   end
 
@@ -27,10 +27,10 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     name  = "Bobby"
     email = "bobby@example.com"
     patch user_registration_path, params: { user: { name: name,
-                                              email: email,
-                                              password:              "",
-                                              password_confirmation: "",
-                                              current_password: "password"} }
+                                                    email: email,
+                                                    password:              "",
+                                                    password_confirmation: "",
+                                                    current_password: "password"} }
     follow_redirect!
     assert_template 'static_pages/home'
     assert_select 'div.alert'
