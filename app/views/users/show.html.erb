@@ -1,64 +1,15 @@
 <div class="container" style="padding-bottom: 20px; padding-top: 30px">
-<div class="row" >
-  <div class="col-sm-8 col-sm-offset-2">
-<h2>
-Profile: <strong><%= @user.name %></strong>
-</h2>
-<hr>
-    <div class="btn-group btn-group-justified">
-      <%= link_to "Created Events", user_path(created: true), class: "btn btn-primary btn-md" %>
-      <%= link_to "Upcoming Events", user_path(upcoming: true), class: "btn btn-primary btn-md" %>
-      <%= link_to "Past Events", user_path(past: true), class: "btn btn-primary btn-md" %>
-    </div>
-
-    
-    <% if @events.any? %>
-      <% @events.each do |event| %>
-        <div class="result content-div" onclick="document.location='<%= event_path(event.id) %>'"; style="cursor: pointer;">
-          <div class="text-align:left">
-            <hr>
-              <div class="media">
-                <div class="media-left" style="padding-left: 20px">
-                  <%= image_tag event.picture.thumb.url, alt: "event picture" if event.picture? %>
-                </div>
-                <div class="media-body">
-                  <h6 class="media-heading"><%= event.title %></h6>
-
-                  <p>
-                    <%= event.date.strftime("%a, %b %-d, %Y, %l:%M %p").upcase %></p>
-
-                  <p></span>
-                    <%= event.location %></p>
-                <br>    
-                <div class="attendees">
-                  <% if Event.upcoming.include?(event) %>
-                    <% if event.attendees.count == 1 %>
-                      <p>1 User Is Going</p>
-                    <% elsif %>
-                      <% event.attendees.count > 1 %> 
-                      <p><%= event.attendees.count %> Users Are Going</p>
-                    <% end %>
-                  <% end %>
-                </div>
-
-              </div>
-              </div>
-            <hr>
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <h2>Profile: <strong><%= @user.name %></strong></h2>
+        <hr>
+          <div class="btn-group btn-group-justified">
+            <%= link_to "Created Events", user_path(created: true), class: "btn btn-primary btn-md" %>
+            <%= link_to "Upcoming Events", user_path(upcoming: true), class: "btn btn-primary btn-md" %>
+            <%= link_to "Past Events", user_path(past: true), class: "btn btn-primary btn-md" %>
           </div>
-        </div>
-      <% end %>
-    <% else %>
-          <hr>
-          <p>(no events)</p>
-      
-    <% end %>
+        <%= render "events/feed" %>
+    </div>
   </div>
 </div>
 
-<div class="col-md-12 text-center">
-            <div class="row">
-              <%= will_paginate @events %>
-            </div>
-          </div>
-
-</div>

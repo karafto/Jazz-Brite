@@ -4,7 +4,6 @@ class EventInterfaceTestTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
   
   def setup
-    @event = events(:event_1)
     @user = users(:kevin)
     sign_in @user
   end
@@ -36,19 +35,5 @@ class EventInterfaceTestTest < ActionDispatch::IntegrationTest
     assert_difference 'Event.count', -1 do
       delete event_path(valid_event)
     end
-  end
-
-  test "invalid edit" do
-    get edit_event_path(@event)
-    patch event_path(@event), params: { event: { title: " ", 
-                                          description: " ", 
-                                          date: " ", 
-                                          location: " " } }
-    assert_select 'div#error_explanation'
-    assert_select 'div.field_with_errors'
-  end
-
-  test "valid edit" do
-    
   end
 end

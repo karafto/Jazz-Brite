@@ -18,5 +18,4 @@ class AttendsController < ApplicationController
       redirect_to @event
     end
   end
-
 end

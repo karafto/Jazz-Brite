@@ -1,0 +1,39 @@
+<% if @events.any? %>
+  <% @events.each do |event| %>
+    <div class="result content-div" onclick="document.location='<%= event_path(event.id) %>'">
+      <div class="text-align:left">
+        <hr>
+          <div class="media">            
+            <div class="media-left" style="padding-left: 20px">
+              <%= image_tag event.picture.thumb.url, alt: "event picture" if event.picture? %>
+            </div>            
+            <div class="media-body">
+              <h5 class="media-heading"><%= event.title %></h5>
+                <p><%= event.date.strftime("%a, %b %-d, %Y, %l:%M %p").upcase %></p>
+                <p></span><%= event.location %></p>
+              <br>    
+              <div class="attendees">
+                <% if Event.upcoming.include?(event) %>
+                  <% if event.attendees.count == 1 %>
+                    <p>1 User Is Going</p>
+                  <% elsif event.attendees.count > 1 %> 
+                    <p><%= event.attendees.count %> Users Are Going</p>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <hr>
+      </div>
+    </div>
+  <% end %>
+<% else %>
+  <hr>
+  <p>(no events)</p>
+<% end %>
+
+<div class="col-md-12 text-center">
+  <div class="row">
+    <%= will_paginate @events %>
+  </div>
+</div>

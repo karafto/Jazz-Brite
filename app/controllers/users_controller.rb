@@ -10,5 +10,4 @@ class UsersController < ApplicationController
       @events = @user.events.order("date DESC").paginate(page: params[:page], per_page: 7)
     end
   end
-
 end
