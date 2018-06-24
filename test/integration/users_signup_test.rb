@@ -27,6 +27,6 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     assert_template 'events/index'
     assert_select 'div.alert'
     assert_select 'a[href=?]', new_user_session_path, count: 0
-    assert_select 'a[href=?]', destroy_user_session_path
+    assert_select 'a[href=?]', destroy_user_session_path, text: "Log Out"
   end
 end

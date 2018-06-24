@@ -27,14 +27,16 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     assert_template 'events/index'
     assert_select 'div.alert'
     assert_select 'a[href=?]', new_user_session_path, count: 0
-    assert_select 'a[href=?]', destroy_user_session_path
-    assert_select "a[href=?]", user_path(@user)
+    assert_select 'a[href=?]', '#', text: @user.name
+    assert_select 'a[href=?]', edit_user_registration_path, text: "Edit Account"
+    assert_select 'a[href=?]', user_path(@user), text: "My Profile"
+    assert_select 'a[href=?]', destroy_user_session_path, text: "Log Out"
     get user_path(@user)
     delete destroy_user_session_path
     assert_redirected_to events_path
     follow_redirect!
     assert_not flash.empty?
-    assert_select 'a[href=?]', new_user_session_path
+    assert_select 'a[href=?]', new_user_session_path, text: "Log In"
   end
 
 end
