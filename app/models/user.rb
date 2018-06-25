@@ -6,7 +6,7 @@ class User < ApplicationRecord
                      length: { minimum: 2, maximum: 50 },
                      uniqueness: true
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, authentication_keys: [:name]
+         :rememberable, :trackable, :validatable, authentication_keys: [:name]
 
   def attend(event)
     active_rsvps.create(attended_event_id: event.id)

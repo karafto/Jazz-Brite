@@ -28,10 +28,9 @@
     <%= f.text_field :location, class: "form-control" %>
   </div>
 
-
   <div class="field">
     <%= f.label :date %><br>
-    <%= f.datetime_select :date, options = {ampm: true, minute_step: 5, start_year: Date.today.year, end_year: Date.today.year + 5, order: [:month, :day, :year], default: Time.zone.now } %>
+    <%= f.datetime_select :date, options = { ampm: true, minute_step: 5, start_year: Date.today.year, end_year: Date.today.year + 5, order: [:month, :day, :year], default: Time.zone.now } %>
   </div>
 
   <div class="field">

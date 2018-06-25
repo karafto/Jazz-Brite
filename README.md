@@ -1,24 +1,11 @@
-# README
+# Jazz Events
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+An Eventbrite clone, but for jazz. With Ruby on Rails.
 
-Things you may want to cover:
+https://jazz-events.herokuapp.com
 
-* Ruby version
+* Users can create & attend events
 
-* System dependencies
+* Devise gem for authentication & authorization
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Thorough testing with Minitest

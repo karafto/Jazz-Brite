@@ -5,7 +5,6 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.6'
 # Use postgresql as the database for Active Record
@@ -53,6 +52,10 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+group :production do
+  gem 'fog', '1.42'
+end
+
 gem 'devise'
 
 gem 'bootstrap-sass', '~> 3.3.7'
@@ -66,9 +69,5 @@ gem 'bootstrap-will_paginate', '1.0.0'
 gem 'carrierwave', '~> 1.0'
 
 gem 'mini_magick'
-
-group :production do
-  gem 'fog', '1.42'
-end
 
 gem 'rails-controller-testing'
