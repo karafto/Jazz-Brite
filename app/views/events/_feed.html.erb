@@ -12,12 +12,13 @@
                 <p><%= event.date.strftime("%a, %b %-d, %Y, %l:%M %p").upcase %></p>
                 <p></span><%= event.location %></p>
               <br>    
-              <div class="attendees">
+              <div class="user-count">
                 <% if Event.upcoming.include?(event) %>
                   <% if event.attendees.count == 1 %>
                     <p>1 User Is Going</p>
                   <% elsif event.attendees.count > 1 %> 
-                    <p><%= event.attendees.count %> Users Are Going</p>
+                    <p><%= event.attendees.count %>
+                    Users Are Going</p>
                   <% end %>
                 <% end %>
               </div>

@@ -129,10 +129,16 @@ p {
   cursor: pointer;
 }
 
-.attendees {
+.user-count {
   p {
   font-size: 1.1em;
   color: black;
   font-weight: 700;
   }
+}
+
+.attendees {
+  text-align: center;
+  font-size: 18px;
+  list-style-type: disc;
 }

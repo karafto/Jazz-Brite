@@ -2,45 +2,52 @@
   <div class="row">
 
     <h2><%= @event.title %></h2>
-      <p><strong>Creator: </strong><%= link_to @event.user.name, @event.user %></p>
+      <p><strong>Creator:</strong>
+        <%= link_to @event.user.name, @event.user %></p>
       <p><%= @event.date.strftime("%a, %b %-d, %Y, %l:%M %p").upcase %></p>
       <p><%= @event.location %></p>
     <hr>
       <p><%= image_tag @event.picture.url, alt: "event picture" if @event.picture? %></p>
       <hr>
-      <p><strong>Description: </strong><%= @event.description %></p>
+      <p><strong>Description:</strong>
+        <%= @event.description %></p>
     <hr>
 
     <% if current_user %>   
       <% if current_user.id == @event.user_id %>       
           <p><span class="glyphicon glyphicon-edit"></span>
             <%= link_to " Edit", edit_event_path(@event) %>
-          or 
-          <%= link_to "Delete", @event, method: :delete, data: { confirm: "Are you sure? This cannot be undone." } %> this Event</p>
+          or
+          <%= link_to "Delete", @event, method: :delete, data: { confirm: "Are you sure? This cannot be undone." } %>
+          this Event</p>
       <% else %>
         <% if Event.upcoming.include?(@event) %>
           <% if current_user.attending?(@event) %>
             <%= form_for(current_user.active_rsvps.find_by(attended_event_id: @event.id), html: { method: :delete }, remote: true) do |f| %>
-            <div><%= hidden_field_tag :attended_event_id, @event.id %></div>
-            <div class="actions"><p><%= f.submit "Leave Event", class: "btn btn-lg" %></p></div>
+              <div><%= hidden_field_tag :attended_event_id, @event.id %></div>              
+              <p class="actions"><%= f.submit "Leave Event", class: "btn btn-lg" %></p>              
             <% end %>
           <% else %>
             <%= form_for(current_user.active_rsvps.build, remote: true) do |f| %>
-            <div><%= hidden_field_tag :attended_event_id, @event.id %></div>
-            <div class="actions"><p><%= f.submit "Attend Event", class: "btn btn-lg" %></p></div>        
+              <div><%= hidden_field_tag :attended_event_id, @event.id %></div>             
+              <p class="actions"><%= f.submit "Attend Event", class: "btn btn-lg" %></p>              
             <% end %>
           <% end %>
         <% end %>
       <% end %>
     <% else %>
-      <p>To start attending events, <%= link_to "Log In", new_user_session_path %> or <%= link_to "Create an Account", new_user_registration_path %></p>
+      <p>To start attending events,
+        <%= link_to "Log In", new_user_session_path %>
+        or
+        <%= link_to "Create an Account", new_user_registration_path %></p>
     <% end %>
 
     <p><strong>Attending:</strong></p>
       <% if @event.attendees.any? %>
         <% @event.attendees.each do |attendee| %>
-        <li style="text-align:center; list-style-type; font-size: 18px;"><%= link_to attendee.name, attendee %></li>
-        <% end %>
+          <li class="attendees">
+            <%= link_to attendee.name, attendee %></li>
+          <% end %>
       <% else %>
         <p>(No attendees)</p>
       <% end %>
