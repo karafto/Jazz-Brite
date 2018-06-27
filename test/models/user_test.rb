@@ -43,4 +43,15 @@ class UserTest < ActiveSupport::TestCase
       @user.destroy
     end
   end
+
+  test "should attend and unattend a event" do
+    kevin = users(:kevin)
+    event  = events(:event_6)
+    assert_not kevin.attending?(event)
+    kevin.attend(event)
+    assert kevin.attending?(event)
+    assert event.attendees.include?(kevin)
+    kevin.unattend(event)
+    assert_not kevin.attending?(event)
+  end
 end
