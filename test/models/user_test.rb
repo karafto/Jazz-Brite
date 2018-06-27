@@ -46,7 +46,7 @@ class UserTest < ActiveSupport::TestCase
 
   test "should attend and unattend a event" do
     kevin = users(:kevin)
-    event  = events(:event_6)
+    event  = events(:event_4)
     assert_not kevin.attending?(event)
     kevin.attend(event)
     assert kevin.attending?(event)
