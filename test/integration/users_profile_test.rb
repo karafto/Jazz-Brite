@@ -14,7 +14,7 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
     assert_match @user.events.count.to_s, response.body
     assert_not @user.attended_events.empty?
     assert_match @user.attended_events.count.to_s, response.body
-    assert_select "a[href=?]", user_path(upcoming: true), text: "Upcoming Events"
+    assert_select "a[href=?]", user_path(upcoming: true), text: "Events I'm Attending"
     assert_select "a[href=?]", user_path(past: true), text: "Past Events"
     assert_select "a[href=?]", user_path(created: true), text: "Created Events"
   end
