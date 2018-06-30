@@ -5,7 +5,7 @@
         <hr>
           <div class="btn-group btn-group-justified">
             <%= link_to "Created Events", user_path(created: true), class: "btn btn-primary btn-md" %>
-            <%= link_to "Events I'm Attending", user_path(upcoming: true), class: "btn btn-primary btn-md" %>
+            <%= link_to "Events Attending", user_path(upcoming: true), class: "btn btn-primary btn-md" %>
             <%= link_to "Past Events", user_path(past: true), class: "btn btn-primary btn-md" %>
           </div>
         <%= render "events/feed" %>
