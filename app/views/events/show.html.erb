@@ -9,8 +9,13 @@
     <hr>
       <p><%= image_tag @event.picture.url, alt: "event picture" if @event.picture? %></p>
       <hr>
-      <p><strong>Description:</strong>
-        <%= @event.description %></p>
+      <p
+        <% if @event.description.size > 90 %>
+          style="text-align:justify"
+        <% end %>>
+        <strong>Description:</strong>
+        <%= @event.description %>
+      </p>            
     <hr>
 
     <% if current_user %>   
