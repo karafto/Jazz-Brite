@@ -5,7 +5,7 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
   test "layout links" do
     get root_path
     assert_template 'static_pages/home'
-    assert_select "a[href=?]", root_path, text: "Jazz Events"
+    assert_select "a[href=?]", root_path, text: "Jazz-Brite"
     assert_select "a[href=?]", events_path, text: "Attend Events"
     assert_select "a[href=?]", events_path, text: "All Events"
     assert_select "a[href=?]", new_event_path, text: "Create Events"
