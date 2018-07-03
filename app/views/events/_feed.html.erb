@@ -13,7 +13,7 @@
                 <p></span><%= event.location %></p>
               <br>    
               <div class="user-count">
-                <% if Event.upcoming.include?(event) %>
+                <% if event.date >= Time.zone.now %>
                   <% if event.attendees.count == 1 %>
                     <p>1 User Is Going</p>
                   <% elsif event.attendees.count > 1 %> 

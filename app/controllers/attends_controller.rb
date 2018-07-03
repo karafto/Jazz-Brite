@@ -3,7 +3,7 @@ class AttendsController < ApplicationController
 
   def create
     @event = Event.find(params[:attended_event_id])
-    if Event.upcoming.include?(@event)
+    if @event.date >= Time.zone.now
       current_user.attend(@event)
       flash[:success] = "Nice! You're going to this event."
       redirect_to @event
@@ -12,7 +12,7 @@ class AttendsController < ApplicationController
 
   def destroy
     @event = Event.find(params[:attended_event_id])
-    if Event.upcoming.include?(@event)
+    if @event.date >= Time.zone.now
       current_user.unattend(@event)
       flash[:info] = "You have left this event."
       redirect_to @event

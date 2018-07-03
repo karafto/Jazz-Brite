@@ -26,7 +26,7 @@
           <%= link_to "Delete", @event, method: :delete, data: { confirm: "Are you sure? This cannot be undone." } %>
           this Event</p>
       <% else %>
-        <% if Event.upcoming.include?(@event) %>
+        <% if @event.date >= Time.zone.now %>
           <% if current_user.attending?(@event) %>
             <%= form_for(current_user.active_rsvps.find_by(attended_event_id: @event.id), html: { method: :delete }, remote: true) do |f| %>
               <div><%= hidden_field_tag :attended_event_id, @event.id %></div>

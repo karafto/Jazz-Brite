@@ -25,7 +25,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
-    if Event.past.include?(@event)
+    if @event.date < Time.zone.now
       flash.now[:info] = "This event has ended."
     end
   end
