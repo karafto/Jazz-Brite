@@ -1,11 +1,13 @@
-# Jazz Events
+# Jazz-Brite
 
 An Eventbrite clone, but for jazz. With Ruby on Rails.
 
-https://jazz-events.herokuapp.com
+See it live: https://jazz-brite.herokuapp.com
 
-* Users can create & attend events
+* Devise gem for authentication and authorization
 
-* Devise gem for authentication & authorization
+* CarrierWave gem for image uploading
+
+* Amazon S3 for image storage in production
 
 * Thorough testing with Minitest
