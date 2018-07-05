@@ -2,7 +2,7 @@
   <div class="row">
 
     <h2><%= @event.title %></h2>
-      <p><strong>Creator:</strong>
+      <p><span class="event-attr">Creator:</span>
         <%= link_to @event.user.name, @event.user %></p>
       <p><%= @event.date.strftime("%a, %b %-d, %Y, %l:%M %p").upcase %></p>
       <p><%= @event.location %></p>
@@ -13,7 +13,7 @@
         <% if @event.description.size > 90 %>
           style="text-align:justify"
         <% end %>>
-        <strong>Description:</strong>
+        <span class="event-attr">Description:</span>
         <%= @event.description %>
       </p>            
     <hr>
@@ -47,7 +47,7 @@
         <%= link_to "Create an Account", new_user_registration_path %></p>
     <% end %>
 
-    <p><strong>Attending:</strong></p>
+    <p><span class="event-attr">Attending:</span></p>
       <% if @event.attendees.any? %>
         <% @event.attendees.each do |attendee| %>
           <li class="attendees">
