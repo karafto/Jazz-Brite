@@ -10,8 +10,16 @@ class AttendsTest < ActionDispatch::IntegrationTest
   end
 
   test "should attend an event" do
-    assert_difference '@event.attendees.count', 1 do
+    assert_difference '@user.attended_events.count', 1 do
       post attends_path, params: { attended_event_id: @event.id }
+    end
+  end
+
+  test "should unattend an event" do
+    @user.attend(@event)
+    attend = @user.active_rsvps.find_by(attended_event_id: @event.id)
+    assert_difference '@user.attended_events.count', -1 do
+      delete attend_path(attend), params: { attended_event_id: @event.id }
     end
   end
 end
