@@ -7,7 +7,7 @@
       <p><%= @event.date.strftime("%a, %b %-d, %Y, %l:%M %p").upcase %></p>
       <p><%= @event.location %></p>
     <hr>
-      <p><%= image_tag @event.picture.url, alt: "event picture" if @event.picture? %></p>
+      <p><%= image_tag @event.picture.url, class: "responsive", alt: "event picture" if @event.picture? %></p>
       <hr>
       <p
         <% if @event.description.size > 90 %>
