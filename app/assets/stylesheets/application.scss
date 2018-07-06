@@ -18,14 +18,14 @@ body {
 
 .bg {
     background-image: image-url("trumpet.jpg");
-    height: 71%; 
+    height: 67%; 
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .glyphicon-equalizer, .glyphicon-calendar, .glyphicon-user {
-  font-size: 2em;
+  font-size: 1.6em;
   color: #404040;
 }
 
@@ -37,8 +37,8 @@ h1, h2, h3, h4, h5 {
 }
 
 h1 {
-  padding-top: 10px;
-  padding-bottom: 20px;
+  padding-top: 20px;
+  padding-bottom: 26px;
   font-size: 3em;
 }
 
@@ -56,7 +56,6 @@ h3 {
 
 h4 {
   font-size: 1.7em;
-  padding-bottom: 5px;
 }
 
 h5 {
