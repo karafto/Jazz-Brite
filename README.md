@@ -16,15 +16,15 @@ See it live: https://jazz-brite.herokuapp.com
 
 Check that (a) Ruby, (b) Rails, and (c) Git are installed on your machine
 
-Clone the repo: '$ git clone https://github.com/karafto/Jazz-Brite.git'
+Clone the repo: `$ git clone https://github.com/karafto/Jazz-Brite.git`
 
-Install gems: '$ bundle'
+Install gems: `$ bundle`
 
 Create and migrate the database:
 
-'$ rails db:create RAILS_ENV=test'
-'$ rails db:migrate'
+`$ rails db:create RAILS_ENV=test`
+`$ rails db:migrate`
 
-To run the app: '$ rails s'
+To run the app: `$ rails s`
 
-To run the full test suite: '$ rails t'
+To run the full test suite: `$ rails t`
