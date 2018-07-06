@@ -23,6 +23,7 @@ Install gems: `$ bundle`
 Create and migrate the database:
 
 `$ rails db:create RAILS_ENV=test`
+
 `$ rails db:migrate`
 
 To run the app: `$ rails s`
