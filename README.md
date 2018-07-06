@@ -12,7 +12,7 @@ See it live: https://jazz-brite.herokuapp.com
 
 * Thorough testing with Minitest
 
-## Local Deployment and Testing
+## Local Environment Setup
 
 Check that (a) Ruby, (b) Rails, and (c) Git are installed on your machine
 
