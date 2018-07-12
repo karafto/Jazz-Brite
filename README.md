@@ -20,11 +20,7 @@ Clone the repo: `$ git clone https://github.com/karafto/Jazz-Brite.git`
 
 Install gems: `$ bundle`
 
-Create and migrate the database:
-
-`$ rails db:create RAILS_ENV=test`
-
-`$ rails db:migrate`
+Migrate the database: `$ rails db:migrate RAILS_ENV=test`
 
 To run the app: `$ rails s`
 
