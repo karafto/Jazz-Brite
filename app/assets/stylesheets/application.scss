@@ -3,7 +3,7 @@
 
 body, html {
   height: 100%;
-  background-color: hsl(240, 17%, 98%);
+  background-color: #f9f9fb;
 }
 
 body {
@@ -14,6 +14,7 @@ body {
   background-color: #becaf4;
   font-weight: 700;
   text-transform: uppercase;
+  border-top: 1px solid #1a3599;
 }
 
 .bg {
@@ -32,7 +33,7 @@ body {
 h1, h2, h3, h4, h5 {
   line-height: 1;
   text-align: center;
-  color: #666666;
+  color: #595959;
   letter-spacing: 0px;
 }
 
@@ -59,7 +60,7 @@ h4 {
 }
 
 h5 {
-  font-size: 1.46em;
+  font-size: 1.4em;
   padding-bottom: 10px;
   text-align: left;
   font-weight: 700;
@@ -70,7 +71,7 @@ p {
   font-size: 1.29em;
   line-height: 1.7em;
   text-align: center;
-  color: $gray-dark;
+  color: #333333;
 }
 
 .field {
@@ -132,24 +133,23 @@ p {
 .content-div {
   background-color: white;
   cursor: pointer;
-  box-shadow: 0 1px 0 0 rgba(0,0,0,.1);
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,.1);
 }
 
 .user-count {
   p {
   font-size: 1.1em;
-  color: black;
+  color: #737373;
   font-weight: 700;
   }
 }
 
 .popular {
   float: right;
-  color: #595959;
 }
 
 .glyphicon-star {
-  color: orange;
+  color: #ff8000;
 }
 
 .attendees {
