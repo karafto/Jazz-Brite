@@ -1,27 +1,30 @@
-<div class="bg"></div>
+<body class="home-page">
 
-<div class="container">
-  <div class="row"> 
-    <h1>Find your next Jazz experience</h1>
-  </div>
-</div>
+  <div class="bg"></div>
 
-<div class="container">
-  <div class="row">
-    <div class="col-lg-4 col-md-6 text-center">          
-      <span class="glyphicon glyphicon-equalizer"></span>
-      <h4><%= link_to "Attend Events", events_path %></h4>
-      <p>Browse and RSVP for live jazz!</p>
-    </div>
-    <div class="col-lg-4 col-md-6 text-center">          
-      <span class="glyphicon glyphicon-calendar"></span>
-      <h4><%= link_to "Create Events", new_event_path %></h4>
-      <p>Hosting a show or festival? Get the word out!</p>
-    </div>
-    <div class="col-lg-4 col-md-6 text-center">         
-      <span class="glyphicon glyphicon-user"></span>
-      <h4><%= link_to "Sign Up", new_user_registration_path %></h4>
-      <p>It's easy get started.</p>
+  <div class="container">
+    <div class="row"> 
+      <h1>Find your next Jazz experience</h1>
     </div>
   </div>
-</div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-md-6 text-center">          
+        <span class="glyphicon glyphicon-equalizer"></span>
+        <h3><%= link_to "Attend Events", events_path %></h3>
+        <p>Browse and RSVP for live jazz!</p>
+      </div>
+      <div class="col-lg-4 col-md-6 text-center">          
+        <span class="glyphicon glyphicon-calendar"></span>
+        <h3><%= link_to "Create Events", new_event_path %></h3>
+        <p>Hosting a show or festival? Get the word out!</p>
+      </div>
+      <div class="col-lg-4 col-md-6 text-center">         
+        <span class="glyphicon glyphicon-user"></span>
+        <h3><%= link_to "Sign Up", new_user_registration_path %></h3>
+        <p>It's easy get started.</p>
+      </div>
+    </div>
+  </div>
+</body>

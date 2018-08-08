@@ -11,7 +11,7 @@
         <p><%= image_tag @event.picture.url, class: "responsive", alt: "event picture" if @event.picture? %></p>
         <hr>
         <p
-          <% if @event.description.size > 90 %>
+          <% if @event.description.size > 75 %>
             style="text-align:justify"
           <% end %>>
           <span class="event-attr">Description:</span>

@@ -3,7 +3,7 @@
 
 body, html {
   height: 100%;
-  background-color: #f9f9fb;
+  background-color: hsl(240, 20%, 98%);
 }
 
 body {
@@ -11,10 +11,24 @@ body {
 }
 
 .navbar {
-  background-color: #becaf4;
+  background-color: #9aa9e5;
   font-weight: 700;
-  text-transform: uppercase;
-  border-top: 1px solid #1a3599;
+  text-transform: none;
+  border-top: 1px solid #2f4ab6;
+  border-bottom: 1px solid #2f4ab6;
+}
+
+.navbar-default .navbar-brand {
+    color: hsl(228, 59%, 100%);
+}
+
+.navbar-default .navbar-nav>li>a {
+  color: hsl(228, 59%, 100%);
+}
+
+.home-page {
+  display: flex;
+  flex-flow: column;
 }
 
 .bg {
@@ -27,7 +41,7 @@ body {
 
 .glyphicon-equalizer, .glyphicon-calendar, .glyphicon-user {
   font-size: 1.6em;
-  color: #404040;
+  color: #f67b55;
 }
 
 h1, h2, h3, h4, h5 {
@@ -41,22 +55,31 @@ h1 {
   padding-top: 20px;
   padding-bottom: 26px;
   font-size: 3em;
-  color: #737373;
+  color: #595959;
 }
 
 h2 {
-  font-size: 1.8em;
+  font-size: 1.67em;
+  font-weight: 700;
+  color: #666666;
   margin-bottom: 20px;
   padding-top: 25px
 }
 
 h3 {
-  font-size: 1.8em;
-  margin-bottom: 20px;
+  font-size: 1.55em;
+  font-weight: 700;
+  margin-top: 10px;
+  a {
+    color: #4557a1;
+  }
 }
 
 h4 {
-  font-size: 1.7em;
+  font-size: 1.67em;
+  color: #666666;
+  margin-bottom: 20px;
+  padding-top: 25px;
 }
 
 h5 {
@@ -71,7 +94,7 @@ p {
   font-size: 1.29em;
   line-height: 1.7em;
   text-align: center;
-  color: #333333;
+  color: #404040;
 }
 
 .field {
@@ -102,7 +125,7 @@ p {
     color: black;
     margin-bottom: 26px;
     list-style-position: inside;
-      }
+  }
 }
 
 .alert {
@@ -161,17 +184,28 @@ p {
 #event-show {
   background-color:white;
   padding-top: 1px;
-  padding-right: 100px;
-  padding-left: 100px;
+  padding-right: 150px;
+  padding-left: 150px;
   padding-bottom: 60px;
 }
 
 .event-attr {
   font-weight: 700;
-  color: #4d4d4d;
+  color: #737373;
 }
 
 .responsive {
-    max-width: 100%;
-    height: auto;
+  max-width: 100%;
+  height: auto;
+}
+
+.glyphicon-edit {
+  color: #666666
+}
+
+.custom-button {
+  background-color: #7186da;
+  color: hsl(228, 60%, 100%);
+  font-weight: 700;
+  text-transform: none;
 }
