@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-8 col-md-offset-2" id="event-show">
+    <div class="col-lg-8 col-lg-offset-2" id="event-show">
 
       <h2><%= @event.title %></h2>
         <p><span class="event-attr">Creator:</span>
@@ -31,12 +31,12 @@
             <% if current_user.attending?(@event) %>
               <%= form_for(current_user.active_rsvps.find_by(attended_event_id: @event.id), html: { method: :delete }, remote: true) do |f| %>
                 <div><%= hidden_field_tag :attended_event_id, @event.id %></div>
-                <p class="actions"><%= f.submit "Leave Event", class: "btn btn-lg" %></p>
+                <p class="actions"><%= f.submit "Leave Event", class: "btn btn-lg leave-button" %></p>
               <% end %>
             <% else %>
               <%= form_for(current_user.active_rsvps.build, remote: true) do |f| %>
                 <div><%= hidden_field_tag :attended_event_id, @event.id %></div>
-                <p class="actions"><%= f.submit "Attend Event", class: "btn btn-lg" %></p>
+                <p class="actions"><%= f.submit "Attend Event", class: "btn btn-lg btn-success attend-button" %></p>
               <% end %>
             <% end %>
           <% end %>
@@ -48,14 +48,14 @@
           <%= link_to "Create an Account", new_user_registration_path %></p>
       <% end %>
 
-      <p><span class="event-attr">Attending:</span></p>
+      <p style="margin-bottom: 3px"><span class="event-attr">Attending:</span></p>
         <% if @event.attendees.any? %>
           <% @event.attendees.each do |attendee| %>
             <li class="attendees">
               <%= link_to attendee.name, attendee %></li>
             <% end %>
         <% else %>
-          <p>(No attendees)</p>
+          <p>(no attendees)</p>
         <% end %>
     </div>
   </div>
