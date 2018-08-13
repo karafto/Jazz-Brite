@@ -73,3 +73,5 @@ gem 'mini_magick'
 gem 'rails-controller-testing'
 
 gem 'newrelic_rpm'
+
+gem 'font-awesome-sass', '~> 5.2.0'

@@ -1,5 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 body, html {
   height: 100%;
@@ -129,7 +131,7 @@ h5 {
 
 p {
   font-size: 1.29em;
-  line-height: 1.5em;
+  line-height: 1.6em;
   text-align: center;
   color: #3c3e44;
 }
@@ -246,7 +248,7 @@ p {
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary:active:focus, .open>.dropdown-toggle.btn-primary {
   color: #fff;
-  background-color: hsl(228, 59%, 45%);
+  background-color: hsl(228, 59%, 44%);
 }
 
 .btn-outline-primary:hover, .btn-outline-primary:focus, .btn-outline-primary:active, .btn-outline-primary:active:focus, .open>.dropdown-toggle.btn-outline-primary {
@@ -255,7 +257,7 @@ p {
 }
 
 .primary-action, .secondary-action, .tertiary-action {
-  background-color: hsl(228, 59%, 60%);
+  background-color: hsl(228, 59%, 59%);
   color: white;
   font-weight: 700;
   font-size: 16px;
@@ -296,14 +298,14 @@ p {
 }
 
 .btn-dark {
-  background-color: hsl(228, 59%, 56%);
+  background-color: hsl(228, 59%, 57%);
   font-weight: 700;
   font-size: 17px;
   color: white;
 }
 
 .btn-dark:hover, .btn-dark:focus, .btn-dark:active, .btn-dark:active:focus, .open>.dropdown-toggle.btn-dark {
-  background-color: hsl(228, 59%, 41%);
+  background-color: hsl(228, 59%, 42%);
   color: white;
 }
 
