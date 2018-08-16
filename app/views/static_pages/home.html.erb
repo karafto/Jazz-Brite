@@ -1,27 +1,24 @@
 <body class="home-page">
-
-  <div class="bg"></div>
-
-  <div class="container">
-    <div class="row"> 
-      <h1>Find your next Jazz experience</h1>
-    </div>
+  <div class="background">
+    <h1>Find your next jazz experience
+      <p><%= link_to "Start exploring", events_path, class: "btn btn-secondary btn-lg home-button" %></p>
+    </h1>
   </div>
 
-  <div class="container">
+  <div class="container" style="padding-top: 50px;">
     <div class="row">
       <div class="col-md-4 text-center">
-        <i class="fas fa-sliders-h" style="font-size: 40px"></i>
+        <i class="fas fa-music" ></i>
         <h3><%= link_to "Attend Events", events_path %></h3>
         <p>Browse and RSVP for live jazz!</p>
       </div>
       <div class="col-md-4 text-center">
-        <i class="fas fa-calendar" style="font-size: 40px"></i>
+        <i class="fas fa-calendar" ></i>
         <h3><%= link_to "Create Events", new_event_path %></h3>
         <p>Hosting a show or festival? Get the word out!</p>
       </div>
       <div class="col-md-4 text-center">
-        <i class="fas fa-user-plus" style="font-size: 40px"></i>
+        <i class="fas fa-users" ></i>
         <h3><%= link_to "Sign Up", new_user_registration_path %></h3>
         <p>It's easy get started.</p>
       </div>

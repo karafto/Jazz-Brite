@@ -14,22 +14,21 @@ body {
 
 a {
   transition: all 0.2s;
-  color: #007f8c;
+  color: hsl(208, 56%, 43%);
 }
 
 a:focus, a:hover, a:active {
-  color: #013653;
 }
 
 .navbar {
   background-color: white;
   font-weight: 700;
   text-transform: none;
-  border-top: 3px solid hsl(228, 40%, 55%);
+  border-top: 3px solid hsl(228, 40%, 52%);
 }
 
 .navbar-default .navbar-brand {
-  color: hsl(228, 40%, 50%);
+  color: hsl(228, 40%, 48%);
   font-size: 24px;
 }
 
@@ -38,7 +37,7 @@ a:focus, a:hover, a:active {
 }
 
 .navbar-default .navbar-nav > li > a {
-  color: hsl(228, 40%, 50%);
+  color: hsl(228, 40%, 48%);
   font-size: 14px;
 }
 
@@ -68,31 +67,47 @@ a:focus, a:hover, a:active {
   background-color: white;
 }
 
-.bg {
+.background {
   background-image: image-url("trumpet.jpg");
-  height: 67%;
+  height: 70%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-.glyphicon-equalizer, .glyphicon-calendar, .glyphicon-user {
-  font-size: 1.6em;
-  color: #f2420d;
+.fa-music, .fa-calendar, .fa-users {
+  font-size: 47px;
+  color: hsl(0, 0%, 20%);
+  padding-bottom: 6px;
 }
 
-h1, h2, h3, h4, h5 {
+h1 {
+  position: relative;
+  top: 40%;
+  text-align: center;
+  margin: 0;
+  font-size: 4.2em;
+  font-weight: 700;
+  color: white;
+}
+
+.home-button {
+  background-color: hsl(228, 40%, 50%);
+  font-weight: 700;
+  color: white;
+  padding: 24px 22px;
+}
+
+.home-button:hover {
+  background-color: hsl(228, 40%, 35%);
+  color: white;
+}
+
+h2, h3, h4, h5 {
   line-height: 1;
   text-align: center;
   color: #282C35;
   letter-spacing: 0px;
-}
-
-h1 {
-  padding-top: 20px;
-  padding-bottom: 26px;
-  font-size: 3.2em;
-  color: #da3c0b;
 }
 
 h2 {
@@ -103,14 +118,14 @@ h2 {
 }
 
 h3 {
-  font-size: 1.55em;
+  font-size: 1.7em;
   font-weight: 700;
   margin-top: 10px;
   a {
     color: hsl(228, 40%, 40%);
   }
   a:hover, a:focus {
-    color: hsl(228, 40%, 25%);
+    color: hsl(228, 40%, 28%);
     text-decoration: underline;
   }
 }
@@ -133,7 +148,7 @@ p {
   font-size: 1.29em;
   line-height: 1.6em;
   text-align: center;
-  color: #3c3e44;
+  color: hsl(225, 6%, 25%);
 }
 
 .field {
@@ -242,13 +257,13 @@ p {
 }
 
 .btn {
-  border-radius: 30px;
+  border-radius: 60px;
   transition: .2s;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary:active:focus, .open>.dropdown-toggle.btn-primary {
   color: #fff;
-  background-color: hsl(228, 59%, 44%);
+  background-color: hsl(228, 40%, 38%);
 }
 
 .btn-outline-primary:hover, .btn-outline-primary:focus, .btn-outline-primary:active, .btn-outline-primary:active:focus, .open>.dropdown-toggle.btn-outline-primary {
@@ -257,7 +272,7 @@ p {
 }
 
 .primary-action, .secondary-action, .tertiary-action {
-  background-color: hsl(228, 59%, 59%);
+  background-color: hsl(228, 40%, 53%);
   color: white;
   font-weight: 700;
   font-size: 16px;
@@ -298,20 +313,20 @@ p {
 }
 
 .btn-dark {
-  background-color: hsl(228, 59%, 57%);
+  background-color: hsl(228, 40%, 49%);
   font-weight: 700;
   font-size: 17px;
   color: white;
 }
 
 .btn-dark:hover, .btn-dark:focus, .btn-dark:active, .btn-dark:active:focus, .open>.dropdown-toggle.btn-dark {
-  background-color: hsl(228, 59%, 42%);
+  background-color: hsl(228, 40%, 34%);
   color: white;
 }
 
 .pagination > .active > a, .pagination > .active > a:hover {
-  background-color: hsl(228, 59%, 55%);
-  border-color: hsl(228, 59%, 55%);
+  background-color: hsl(228, 40%, 47%);
+  border-color: hsl(228, 40%, 47%);
 }
 
 .pagination > li > a, .pagination > li > span {
