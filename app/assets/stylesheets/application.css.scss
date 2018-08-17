@@ -28,7 +28,7 @@ a:focus, a:hover, a:active {
 }
 
 .navbar-default .navbar-brand {
-  color: hsl(228, 40%, 48%);
+  color: hsl(228, 40%, 49%);
   font-size: 24px;
 }
 
@@ -37,7 +37,7 @@ a:focus, a:hover, a:active {
 }
 
 .navbar-default .navbar-nav > li > a {
-  color: hsl(228, 40%, 48%);
+  color: hsl(228, 40%, 49%);
   font-size: 14px;
 }
 
@@ -51,12 +51,12 @@ a:focus, a:hover, a:active {
   color: hsl(228, 40%, 50%);
 }
 
-.dropdown-menu > li > a {
+.navbar-default .navbar-nav .open .dropdown-menu > li > a {
   font-weight: 700;
   color: hsl(228, 40%, 50%);
 }
 
-.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
   background-color: hsl(240, 20%, 96%);
   color: hsl(228, 40%, 50%);
 }
@@ -98,7 +98,7 @@ h1 {
   padding: 24px 22px;
 }
 
-.home-button:hover {
+.home-button:hover, .home-button:focus, .home-button:active {
   background-color: hsl(228, 40%, 35%);
   color: white;
 }
