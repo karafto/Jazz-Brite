@@ -48,7 +48,7 @@
           <%= link_to "Create an Account", new_user_registration_path %></p>
       <% end %>
 
-      <p style="margin-bottom: 3px"><span class="event-attr">Attending:</span></p>
+      <p style="margin-bottom: 3px; padding-top: 15px;"><span class="event-attr">Attending:</span></p>
         <% if @event.attendees.any? %>
           <% @event.attendees.each do |attendee| %>
             <li class="attendees">
