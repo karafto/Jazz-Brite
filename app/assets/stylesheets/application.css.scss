@@ -82,8 +82,10 @@ a:focus, a:hover, a:active {
 }
 
 .fa-facebook {
-  font-size: 28px;
-  padding-right: 5px;
+  position: relative;
+  top: 3px;
+  right: 6px;
+  font-size: 30px;
   line-height: 0;
   color: #4b5faf;
 }
