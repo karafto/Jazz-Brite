@@ -30,6 +30,7 @@ a:focus, a:hover, a:active {
 .navbar-default .navbar-brand {
   color: hsl(228, 40%, 49%);
   font-size: 24px;
+  letter-spacing: .6px;
 }
 
 .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
@@ -206,8 +207,8 @@ p {
 
 .alert {
   margin: auto;
-  margin-top: 20px;
-  margin-bottom: 14px;
+  margin-top: 12px;
+  margin-bottom: 8px;
   background-color: hsl(210, 65%, 91%);
   color: hsl(210, 65%, 40%);
   font-weight: 700;

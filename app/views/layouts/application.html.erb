@@ -33,7 +33,7 @@
                   <li><a href="#"><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></a></li>
                   <li role="separator" class="divider"></li>
                   <% if current_user.provider != nil %>
-                    <li><a href="#"><%= link_to "Cancel Account", registration_path(current_user), data: { confirm: "Are you sure? This cannot be undone." }, method: :delete %></a></li>
+                    <li><a href="#"><%= link_to "Cancel Account", registration_path(current_user), data: { confirm: "Are you sure?" }, method: :delete %></a></li>
                   <% else %>
                     <li><a href="#"><%= link_to 'Edit Account', edit_user_registration_path %></a></li>
                   <% end %>
