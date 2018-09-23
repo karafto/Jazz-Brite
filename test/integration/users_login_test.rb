@@ -23,9 +23,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     assert_template 'devise/sessions/new'
     sign_in @user
     post user_session_path
-    assert_redirected_to events_path
     follow_redirect!
-    assert_template 'events/index'
     assert_select 'div.alert'
     assert_select 'a[href=?]', new_user_session_path, count: 0
     assert_select 'a[href=?]', '#', text: @user.name
