@@ -26,6 +26,10 @@
   <%- resource_class.omniauth_providers.each do |provider| %>
     <p style="font-variant: all-small-caps; font-size: 20px; word-spacing: 1px;">
       <i class="fab fa-facebook"></i>
-      <%= link_to "Log In with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) %></p><br />
+      <%- if controller_name == 'sessions' %>
+        <%= link_to "Log In with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) %></p><br />
+      <% else %>
+        <%= link_to "Sign Up with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) %></p><br />
+      <% end %>
   <% end -%>
 <% end -%>
