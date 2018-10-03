@@ -27,6 +27,10 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     if @event.date < Time.zone.now
       flash.now[:info] = "This event has ended."
+    else
+      if authorized?(@event)
+        @invite = Invite.new
+      end
     end
   end
   

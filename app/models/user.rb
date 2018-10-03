@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_many :events, dependent: :destroy
   has_many :active_rsvps, foreign_key: 'attendee_id', class_name: 'Attend', dependent: :destroy
   has_many :attended_events, through: :active_rsvps, source: :attended_event
+  has_many :sent_invitations, class_name: 'Invite', foreign_key: 'sender_id'
   validates :name, presence: true,
                      length: { minimum: 2, maximum: 50 },
                      uniqueness: true

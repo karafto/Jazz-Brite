@@ -21,11 +21,25 @@
 
       <% if current_user %>
         <% if current_user.id == @event.user_id %>
-            <p><span class="glyphicon glyphicon-edit"></span>
-              <%= link_to " Edit", edit_event_path(@event) %>
+          <p style="padding-bottom: 30px;"><span class="glyphicon glyphicon-edit" style="padding-right: 3px;"></span>
+            <%= link_to " Edit", edit_event_path(@event) %>
             or
             <%= link_to "Delete", @event, method: :delete, data: { confirm: "Are you sure?" } %>
-            this Event</p>
+            this event</p>
+          <% if @event.date >= Time.zone.now %>
+            <p><span class="glyphicon glyphicon-envelope" style="padding-right: 4px;"></span>
+              Invite someone to this event:</p>
+            <%= form_for @invite do |f| %>
+              <div class="field" style="width: 310px; padding-top: 1px; padding-bottom: 1px;">
+                <%= f.hidden_field :event_id, :value => @event.id %>
+                <%= f.label :recipient_email, "Email" %>
+                <%= f.text_field :recipient_email, class: "form-control" %>
+              </div>
+              <div class="actions">
+                <p><%= f.submit "Send Invite", class: "btn btn-lg btn-dark" %></p>
+              </div>
+            <% end %>
+          <% end %>
         <% else %>
           <% if @event.date >= Time.zone.now %>
             <% if current_user.attending?(@event) %>
