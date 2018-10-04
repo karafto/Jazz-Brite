@@ -8,6 +8,7 @@ class InviteMailer < ApplicationMailer
   def invite_email(invite, name)
     @url = event_url(invite.event_id)
     @name = name
+    @event = invite.event_name
     mail to: invite.recipient_email, subject: "Jazz-Brite: New Invitation from #{name}"
   end
 end
