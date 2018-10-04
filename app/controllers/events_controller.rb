@@ -28,9 +28,7 @@ class EventsController < ApplicationController
     if @event.date < Time.zone.now
       flash.now[:info] = "This event has ended."
     else
-      if authorized?(@event)
-        @invite = Invite.new
-      end
+      @invite = Invite.new
     end
   end
   
