@@ -6,7 +6,7 @@ class User < ApplicationRecord
   validates :name, presence: true,
                      length: { minimum: 2, maximum: 50 },
                      uniqueness: true
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable, :recoverable,
          :rememberable, :trackable, :validatable, authentication_keys: [:name]
   devise :omniauthable, :omniauth_providers => [:facebook]
 
