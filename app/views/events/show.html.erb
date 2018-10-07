@@ -28,18 +28,8 @@
             this event</p>
           <% if @event.date >= Time.zone.now %>
             <p><span class="glyphicon glyphicon-envelope" style="padding-right: 4px;"></span>
-              Invite someone to this event:</p>
-            <%= form_for @invite do |f| %>
-              <div class="field" style="width: 310px; padding-top: 1px; padding-bottom: 1px;">
-                <%= f.hidden_field :event_id, value: @event.id %>
-                <%= f.hidden_field :event_name, value: @event.title %>
-                <%= f.label :recipient_email, "Email" %>
-                <%= f.text_field :recipient_email, class: "form-control" %>
-              </div>
-              <div class="actions">
-                <p><%= f.submit "Send Invite", class: "btn btn-lg btn-dark" %></p>
-              </div>
-            <% end %>
+            Invite someone to this event:</p>
+            <%= render "invite_form" %>
           <% end %>
         <% else %>
           <% if @event.date >= Time.zone.now %>
@@ -54,10 +44,13 @@
                 <p class="actions"><%= f.submit "Attend Event", class: "btn btn-lg btn-success attend-button" %></p>
               <% end %>
             <% end %>
+            <p style="padding-top: 25px;"><span class="glyphicon glyphicon-envelope" style="padding-right: 4px;"></span>
+            Invite someone to this event:</p>
+            <%= render "invite_form" %>
           <% end %>
         <% end %>
       <% else %>
-        <p>To start attending events,
+        <p>To start enjoying Jazz-Brite,
           <%= link_to "Log In", new_user_session_path %>
           or
           <%= link_to "Create an Account", new_user_registration_path %></p>
