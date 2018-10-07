@@ -1,0 +1,8 @@
+<% if @event.attendees.any? %>
+  <% @event.attendees.each do |attendee| %>
+    <li class="attendees">
+    <%= link_to attendee.name, attendee %></li>
+  <% end %>
+<% else %>
+  <p>(no attendees)</p>
+<% end %>

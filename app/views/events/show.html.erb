@@ -57,14 +57,7 @@
       <% end %>
 
       <p style="margin-bottom: 3px; padding-top: 15px;"><span class="event-attr">Attending:</span></p>
-        <% if @event.attendees.any? %>
-          <% @event.attendees.each do |attendee| %>
-            <li class="attendees">
-              <%= link_to attendee.name, attendee %></li>
-            <% end %>
-        <% else %>
-          <p>(no attendees)</p>
-        <% end %>
+        <%= render "attendee_list" %>
     </div>
   </div>
 </div>
