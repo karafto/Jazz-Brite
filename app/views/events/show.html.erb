@@ -57,9 +57,9 @@
 
       <p style="margin-bottom: 4px; padding-top: 15px;"><span class="event-attr"> 
         <% if @event.attendees.any? %>
-          Attending (<span id="count"><%= @event.attendees.count %></span>):
+          Attendees (<span id="count"><%= @event.attendees.count %></span>):
         <% else %>
-          Attending:
+          Attendees:
         <% end %></span></p>
       <div id="attending">
         <%= render "attendee_list" %>

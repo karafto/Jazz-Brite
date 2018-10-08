@@ -15,10 +15,10 @@
               <div class="user-count">
                 <% if event.date >= Time.zone.now %>
                   <% if event.attendees.count == 1 %>
-                    <p>1 User Is Going</p>
+                    <p>1 Person going</p>
                   <% elsif event.attendees.count > 1 %> 
                     <p><%= event.attendees.count %>
-                    Users Are Going
+                    People going
                     <% if event.attendees.count > 3 %>
                       <span class="popular"><span class="glyphicon glyphicon-star"></span> Popular</span>
                     <% end %></p>
