@@ -1,11 +1,11 @@
 <%= form_for @invite do |f| %>
-  <div class="field" style="width: 310px; padding-top: 1px; padding-bottom: 1px;">
+  <div class="field" style="width: 302px; padding-top: 1px; padding-bottom: 1px;">
     <%= f.hidden_field :event_id, value: @event.id %>
     <%= f.hidden_field :event_name, value: @event.title %>
     <%= f.label :recipient_email, "Email" %>
     <%= f.text_field :recipient_email, class: "form-control" %>
   </div>
   <div class="actions">
-    <p><%= f.submit "Send Invite", class: "btn btn-lg btn-dark" %></p>
+    <p><%= f.submit "Send Invitation", class: "btn btn-lg btn-dark" %></p>
   </div>
 <% end %>

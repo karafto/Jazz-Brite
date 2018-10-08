@@ -28,24 +28,20 @@
             this event</p>
           <% if @event.date >= Time.zone.now %>
             <p><span class="glyphicon glyphicon-envelope" style="padding-right: 4px;"></span>
-            Invite someone to this event:</p>
+            Invite a friend to this event:</p>
             <%= render "invite_form" %>
           <% end %>
         <% else %>
           <% if @event.date >= Time.zone.now %>
-            <% if current_user.attending?(@event) %>
-              <%= form_for(current_user.active_rsvps.find_by(attended_event_id: @event.id), html: { method: :delete }, remote: true) do |f| %>
-                <div><%= hidden_field_tag :attended_event_id, @event.id %></div>
-                <p class="actions"><%= f.submit "Leave Event", class: "btn btn-lg leave-button" %></p>
+            <div id="rsvp_form" >
+              <% if current_user.attending?(@event) %>
+                <%= render "unattend_form" %>
+              <% else %>
+                <%= render "attend_form" %>
               <% end %>
-            <% else %>
-              <%= form_for(current_user.active_rsvps.build, remote: true) do |f| %>
-                <div><%= hidden_field_tag :attended_event_id, @event.id %></div>
-                <p class="actions"><%= f.submit "Attend Event", class: "btn btn-lg btn-success attend-button" %></p>
-              <% end %>
-            <% end %>
-            <p style="padding-top: 25px;"><span class="glyphicon glyphicon-envelope" style="padding-right: 4px;"></span>
-            Invite someone to this event:</p>
+            </div>
+            <p style="padding-top: 25px;"><i class="fas fa-envelope" style="padding-right: 4px;"></i>
+            Invite a friend to this event:</p>
             <%= render "invite_form" %>
           <% end %>
         <% end %>
@@ -56,8 +52,15 @@
           <%= link_to "Create an Account", new_user_registration_path %></p>
       <% end %>
 
-      <p style="margin-bottom: 3px; padding-top: 15px;"><span class="event-attr">Attending:</span></p>
+      <p style="margin-bottom: 4px; padding-top: 15px;"><span class="event-attr"> 
+        <% if @event.attendees.any? %>
+          Attending (<span id="count"><%= @event.attendees.count %></span>):
+        <% else %>
+          Attending:
+        <% end %></span></p>
+      <div id="attending">
         <%= render "attendee_list" %>
+      </div>
     </div>
   </div>
 </div>

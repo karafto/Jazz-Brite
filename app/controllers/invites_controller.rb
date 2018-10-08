@@ -7,7 +7,7 @@ class InvitesController < ApplicationController
 
     if @invite.save
       InviteMailer.invite_email(@invite, current_user.name).deliver_now
-      flash[:success] = "Email invite sent."
+      flash[:success] = "Email invitation sent!"
       redirect_to event_url(@invite.event_id)
     else
       flash[:info] = "Please use a valid email address."

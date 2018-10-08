@@ -5,17 +5,21 @@ class AttendsController < ApplicationController
     @event = Event.find(params[:attended_event_id])
     if @event.date >= Time.zone.now
       current_user.attend(@event)
-      flash[:success] = "Nice! You're going to this event."
-      redirect_to @event
+      respond_to do |format|
+        format.html { redirect_to @event }
+        format.js
+      end
     end
   end
 
   def destroy
-    @event = Event.find(params[:attended_event_id])
+    @event = Attend.find(params[:id]).attended_event
     if @event.date >= Time.zone.now
       current_user.unattend(@event)
-      flash[:info] = "You have left this event."
-      redirect_to @event
+      respond_to do |format|
+        format.html { redirect_to @event }
+        format.js
+      end
     end
   end
 end
