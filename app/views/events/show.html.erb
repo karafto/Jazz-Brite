@@ -21,14 +21,15 @@
 
       <% if current_user %>
         <% if current_user.id == @event.user_id %>
-          <p style="padding-bottom: 30px;"><span class="glyphicon glyphicon-edit" style="padding-right: 3px;"></span>
+          <p style="padding-bottom: 33px; padding-top: 10px;">
+            <i class="fas fa-edit" style="padding-right: 2px;"></i>
             <%= link_to " Edit", edit_event_path(@event) %>
             or
             <%= link_to "Delete", @event, method: :delete, data: { confirm: "Are you sure?" } %>
-            this event</p>
+            your event</p>
           <% if @event.date >= Time.zone.now %>
-            <p><span class="glyphicon glyphicon-envelope" style="padding-right: 4px;"></span>
-            Invite a friend to this event:</p>
+            <p><i class="fas fa-envelope" style="padding-right: 4px;"></i>
+            Invite a friend to your event:</p>
             <%= render "invite_form" %>
           <% end %>
         <% else %>
@@ -46,7 +47,8 @@
           <% end %>
         <% end %>
       <% else %>
-        <p>To start enjoying Jazz-Brite,
+        <p><i class="fas fa-arrow-right" style="padding-right: 3px;"></i>
+          To start enjoying Jazz-Brite,
           <%= link_to "Log In", new_user_session_path %>
           or
           <%= link_to "Create an Account", new_user_registration_path %></p>
