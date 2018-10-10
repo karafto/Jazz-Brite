@@ -1,12 +1,14 @@
 require 'test_helper'
 
 class UsersProfileTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
   
   def setup
     @user = users(:kevin)
   end
   
   test "profile display" do
+    sign_in @user
     get user_path(@user)
     assert_template 'users/show'
     assert_select 'strong', text: @user.name
