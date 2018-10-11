@@ -270,6 +270,31 @@ p {
   line-height: 0;
 }
 
+.nav-tabs > li {
+  float:right;
+  display:inline-block;
+  zoom:1;
+}
+
+.nav-tabs > li > a {
+  color: hsl(228, 40%, 45%);
+  border-top-right-radius: 12px;
+  border-top-left-radius: 12px;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.nav-tabs > li > a:hover {
+  background-color: hsl(228, 59%, 93%);
+  }
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+  background-color: hsl(228, 40%, 53%);
+  color: white;
+  padding: 8px 30px;
+  font-size: 17px;
+}
+
 .btn {
   border-radius: 60px;
   transition: .2s;
