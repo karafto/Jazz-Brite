@@ -14,7 +14,5 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", new_user_registration_path, text: "Sign Up"
     assert_select "a[href=?]", new_user_session_path, text: "Log In"
     get events_path
-    assert_select "a[href=?]", events_path(upcoming: true), text: "Upcoming Events"
-    assert_select "a[href=?]", events_path(past: true), text: "Past Events"
   end
 end
