@@ -1,0 +1,30 @@
+<div class="result content-div" onclick="document.location='<%= event_path(event.id) %>'">
+  <div class="text-align:left">
+    <hr>
+      <div class="media">            
+        <div class="media-left">
+          <%= image_tag event.picture.thumb.url, alt: "event picture" if event.picture? %>
+        </div>            
+        <div class="media-body">
+          <h5 class="media-heading"><%= event.title %></h5>
+            <p><%= event.date.strftime("%a, %b %-d, %Y, %l:%M %p").upcase %></p>
+            <p><%= event.location %></p>
+          <br>    
+          <div class="user-count">
+            <% if event.date >= Time.zone.now %>
+              <% if event.attendees.count == 1 %>
+                <p>1 Person going</p>
+              <% elsif event.attendees.count > 1 %> 
+                <p><%= event.attendees.count %>
+                People going
+                <% if event.attendees.count > 3 %>
+                  <span class="popular"><span class="glyphicon glyphicon-star"></span> Popular</span>
+                <% end %></p>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <hr>
+  </div>
+</div>
