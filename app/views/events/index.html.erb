@@ -2,36 +2,18 @@
   <div class="row">
     <div class="col-lg-6 col-lg-offset-3">
       <ul class="nav nav-tabs">
-        <li><a data-toggle="tab" href="#past">Past Events</a></li>
-        <li class="active"><a data-toggle="tab" href="#upcoming">Upcoming Events</a></li>
+        <li><a data-toggle="tab" href="#past">
+          Past Events <%= @past_events.count %></a></li>
+        <li class="active"><a data-toggle="tab" href="#upcoming">
+          Upcoming Events <%= @upcoming_events.count %></a></li>
       </ul>
 
       <div class="tab-content">
         <div id="upcoming" class="tab-pane fade in active">
-          <% if @upcoming_events.any? %>
-            <%= render @upcoming_events %>
-              <div class="col-md-12 text-center">
-                <div class="row">
-                  <%= will_paginate @upcoming_events %>
-                </div>
-              </div>
-          <% else %>
-            <hr>
-            <p>(no events)</p>
-          <% end %>
+          <%= render @upcoming_events %>
         </div>
         <div id="past" class="tab-pane fade">
-          <% if @past_events.any? %>
-            <%= render @past_events %>
-              <div class="col-md-12 text-center">
-                <div class="row">
-                  <%= will_paginate @past_events %>
-                </div>
-              </div>
-          <% else %>
-            <hr>
-            <p>(no events)</p>
-          <% end %>
+          <%= render @past_events %>
         </div>
       </div>
     </div>
