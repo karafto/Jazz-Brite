@@ -82,13 +82,14 @@ a:focus, a:hover, a:active {
   padding-bottom: 6px;
 }
 
-.fa-facebook {
+.fa-facebook-f {
   position: relative;
-  top: 3px;
-  right: 5px;
-  font-size: 28px;
+  top: 1px;
+  right: 10px;
+  font-size: 19px;
   line-height: 0;
-  color: #4b5faf;
+  color: white;
+  margin-left: 10px;
 }
 
 h1 {
@@ -164,6 +165,19 @@ p {
   line-height: 1.6em;
   text-align: center;
   color: hsl(225, 6%, 25%);
+}
+
+.form-box {
+  background-color: white;
+  box-shadow: 0 2px 20px 0 rgba(0,0,0,.1);
+  border-radius: 12px;
+  margin-top: 40px;
+  padding-bottom: 20px;
+
+  h2 {
+    padding-top: 45px;
+    padding-bottom: 24px;
+  }
 }
 
 .field {
