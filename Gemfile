@@ -77,3 +77,7 @@ gem 'newrelic_rpm'
 gem 'font-awesome-sass', '~> 5.2.0'
 
 gem 'omniauth-facebook'
+
+gem 'geocoder'
+
+gem 'figaro'

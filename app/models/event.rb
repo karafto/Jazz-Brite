@@ -9,6 +9,8 @@ class Event < ApplicationRecord
   validates :location, presence: true
   validates :date, presence: true
   validate  :picture_size
+  geocoded_by :location
+  after_validation :geocode
 
   def self.upcoming
     self.where("date >= ?", Time.zone.now).order("date ASC")
