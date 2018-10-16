@@ -3,6 +3,7 @@
     <div class="col-lg-6 col-lg-offset-3">
       <ul class="nav nav-tabs">
         <li><a data-toggle="tab" href="#past">Past Events</a></li>
+        <li><a data-toggle="tab" href="#near">Upcoming Near You</a></li>
         <li class="active"><a data-toggle="tab" href="#upcoming">Upcoming Events</a></li>
       </ul>
 
@@ -12,6 +13,13 @@
         </div>
         <div id="past" class="tab-pane fade">
           <%= render @past_events %>
+        </div>
+        <div id="near" class="tab-pane fade">
+          <% if @nearby_events.any? %>
+            <%= render @nearby_events %>
+          <% else %>
+            <p style="margin-top: 100px;">(Oh no! Zero results found.)</p>
+          <% end %>
         </div>
       </div>
     </div>
