@@ -18,8 +18,14 @@ class EventsController < ApplicationController
   def index
     @past_events = Event.past
     @upcoming_events = Event.upcoming
-    location = request.location
-    @nearby_events = Event.upcoming.near([location.latitude, location.longitude], 60)
+    if Rails.env.development? || Rails.env.test?
+      visitor_latitude = 34.05223 
+      visitor_longitude = -118.24368
+    else
+      visitor_latitude = request.location.latitude
+      visitor_longitude = request.location.longitude
+    end
+    @nearby_events = Event.featured(visitor_latitude, visitor_longitude)
   end
 
   def show

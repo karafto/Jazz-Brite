@@ -20,6 +20,10 @@ class Event < ApplicationRecord
     self.where("date < ?", Time.zone.now).order("date DESC")
   end
 
+  def Event.featured(visitor_latitude, visitor_longitude)
+    Event.upcoming.near([visitor_latitude, visitor_longitude], 20).limit(6)
+  end
+
   private
 
     def picture_size
