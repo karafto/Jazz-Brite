@@ -18,7 +18,9 @@ class EventsController < ApplicationController
   def index
     @past_events = Event.past
     @upcoming_events = Event.upcoming
-    @nearby_events = Event.upcoming.near(request.location.coordinates, 60)
+    user_latitude = request.location.latitude
+    user_longitude = request.location.longitude
+    @nearby_events = Event.upcoming.near([user_latitude, user_longitude], 60)
   end
 
   def show
