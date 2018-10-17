@@ -21,6 +21,13 @@ class Event < ApplicationRecord
   end
 
   def Event.featured(visitor_latitude, visitor_longitude)
+    if Rails.env.development? || Rails.env.test?
+      visitor_latitude = 34.05223 
+      visitor_longitude = -118.24368
+    else
+      visitor_latitude = request.location.latitude
+      visitor_longitude = request.location.longitude
+    end
     Event.upcoming.near([visitor_latitude, visitor_longitude], 20).limit(6)
   end
 
