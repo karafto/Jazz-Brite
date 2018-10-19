@@ -9,24 +9,21 @@
           <h5 class="media-heading"><%= event.title %></h5>
             <p><%= event.date.strftime("%a, %b %-d, %Y, %l:%M %p").upcase %></p>
             <p><%= event.location %></p>
-          <br>    
+          <br>
           <div class="user-count">
-            <% if event.distance_from_visitor %>
-              <p><span class="distance"><i class="fas fa-map-marker-alt"></i>
-                <%= event.distance_from_visitor.round(1) %> miles</span></p>
+            <% if event.date < Time.zone.now %>
+              <p><%= pluralize(event.attendees.count, 'Person') + ' went' if event.attendees.any? %>
             <% else %>
-              <% if event.date >= Time.zone.now %>
-                <% if event.attendees.count == 1 %>
-                  <p>1 Person going</p>
-                <% elsif event.attendees.count > 1 %> 
-                  <p><%= event.attendees.count %>
-                  People going
+              <p><%= pluralize(event.attendees.count, 'Person') + ' going' if event.attendees.any? %>
+                <% if event.distance_from_visitor %>
+                  <span class="distance"><i class="fas fa-map-marker-alt"></i>
+                  <%= event.distance_from_visitor.round(1) %> miles</span>
+                <% else %>
                   <% if event.attendees.count > 3 %>
                     <span class="popular"><span class="glyphicon glyphicon-star"></span> Popular</span>
-                  <% end %></p>
+                  <% end %>
                 <% end %>
-              <% end %>
-            <% end %>
+            <% end %></p>
           </div>
         </div>
       </div>
