@@ -23,7 +23,10 @@ class EventsController < ApplicationController
     else
       location = request.location.coordinates
     end
-    @nearby_events = Event.upcoming.near(location, 60).limit(6)
+    @nearby_events = Event.upcoming.near(location, 100)
+    @nearby_events.each do | event |
+      event.distance_from_visitor = event.distance
+    end
   end
 
   def show

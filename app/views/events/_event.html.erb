@@ -11,15 +11,20 @@
             <p><%= event.location %></p>
           <br>    
           <div class="user-count">
-            <% if event.date >= Time.zone.now %>
-              <% if event.attendees.count == 1 %>
-                <p>1 Person going</p>
-              <% elsif event.attendees.count > 1 %> 
-                <p><%= event.attendees.count %>
-                People going
-                <% if event.attendees.count > 3 %>
-                  <span class="popular"><span class="glyphicon glyphicon-star"></span> Popular</span>
-                <% end %></p>
+            <% if event.distance_from_visitor %>
+              <p><span class="distance"><i class="fas fa-map-marker-alt"></i>
+                <%= event.distance_from_visitor.round(1) %> miles</span></p>
+            <% else %>
+              <% if event.date >= Time.zone.now %>
+                <% if event.attendees.count == 1 %>
+                  <p>1 Person going</p>
+                <% elsif event.attendees.count > 1 %> 
+                  <p><%= event.attendees.count %>
+                  People going
+                  <% if event.attendees.count > 3 %>
+                    <span class="popular"><span class="glyphicon glyphicon-star"></span> Popular</span>
+                  <% end %></p>
+                <% end %>
               <% end %>
             <% end %>
           </div>

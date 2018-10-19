@@ -246,7 +246,7 @@ p {
 
 .media-body {
   padding-left: 17px;
-  padding-right: 37px;
+  padding-right: 42px;
   p {
     text-align: left;
     line-height: 1.4em;
@@ -273,12 +273,26 @@ p {
   }
 }
 
+.fa-map-marker-alt {
+  color: hsla(0, 100%, 43%, 1);
+  position: relative;
+  right: 2px;
+  top: 1px;
+  font-size: 19px;
+}
+
+
+.distance {
+  float: right;
+  word-spacing: 1px;
+}
+
 .popular {
   float: right;
 }
 
 .glyphicon-star {
-  color: #ff8000;
+  color: hsla(25, 100%, 50%, 1);
   font-size: 22px;
   top: 5px;
   line-height: 0;
