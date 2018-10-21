@@ -1,4 +1,4 @@
 <%= form_for(current_user.active_rsvps.build, remote: true) do |f| %>
   <div><%= hidden_field_tag :attended_event_id, @event.id %></div>
-  <p class="actions"><%= f.submit "Attend event", class: "btn btn-lg btn-success attend-button" %></p>
+  <p><%= f.submit "Attend event", class: "btn btn-lg btn-success attend-button" %></p>
 <% end %>

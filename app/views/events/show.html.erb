@@ -2,67 +2,71 @@
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2" id="event-show">
 
-      <h2><%= @event.title %></h2>
-        <p style="padding-top: 5px;"><span class="event-attr">Creator:</span>
+      <h2 class="event-header"><%= @event.title %></h2>
+        <p class="event-header"><span class="event-attr">Creator:</span>
           <%= link_to @event.user.name, @event.user %></p>
-        <p style="padding-top: 5px;"><%= @event.date.strftime("%a, %b %-d, %Y, %l:%M %p").upcase %></p>
-        <p style="padding-top: 5px;"><%= @event.location %></p>
+        <p class="event-header"><span class="event-attr">Date and Time:</span>
+          <%= @event.date.strftime("%A, %B %-d, %Y, %l:%M %p") %></p>
+        <p class="event-header"><span class="event-attr">Location:</span>
+          <%= @event.location %></p>
       <hr>
         <p><%= image_tag @event.picture.url, class: "responsive", alt: "event picture" if @event.picture? %></p>
-        <hr>
-        <p
-          <% if @event.description.size > 50 %>
-            style="text-align:left"
-          <% end %>>
+      <hr>
+        <p style="margin-bottom: 22px;">
           <span class="event-attr">Description:</span>
           <%= @event.description %>
         </p>
       <hr>
-
-      <% if current_user %>
-        <% if current_user.id == @event.user_id %>
-          <p style="padding-bottom: 33px; padding-top: 10px;">
-            <i class="fas fa-edit" style="padding-right: 2px;"></i>
-            <%= link_to " Edit", edit_event_path(@event) %>
+      <div class="row" style="margin-top: 53px;">
+        <% if !current_user %>
+          <p style="margin-bottom: 60px; margin-left: 14px;">
+            <i class="fas fa-lock" style="padding-right: 3px;"></i>
+            To start enjoying Jazz-Brite,
+            <%= link_to "Log in", new_user_session_path %>
             or
-            <%= link_to "Delete", @event, method: :delete, data: { confirm: "Are you sure?" } %>
-            your event</p>
-          <% if @event.date >= Time.zone.now %>
-            <p><i class="fas fa-envelope" style="padding-right: 4px;"></i>
-            Invite a friend to your event:</p>
-            <%= render "invite_form" %>
-          <% end %>
+            <%= link_to "Create an account", new_user_registration_path %></p>
         <% else %>
-          <% if @event.date >= Time.zone.now %>
-            <div id="rsvp_form" >
-              <% if current_user.attending?(@event) %>
-                <%= render "unattend_form" %>
-              <% else %>
-                <%= render "attend_form" %>
+          <div class="col-xs-6">
+            <% if current_user.id == @event.user_id %>
+              <p>
+                <i class="fas fa-edit"></i>
+                <%= link_to " Edit", edit_event_path(@event) %>
+                or
+                <%= link_to "Delete", @event, method: :delete, data: { confirm: "Are you sure?" } %>
+                your event</p>
+            <% else %>
+              <% if @event.date >= Time.zone.now %>
+                <div id="rsvp_form">
+                  <% if current_user.attending?(@event) %>
+                    <%= render "unattend_form" %>
+                  <% else %>
+                    <%= render "attend_form" %>
+                  <% end %>
+                </div>
               <% end %>
-            </div>
-            <p style="padding-top: 25px;"><i class="fas fa-envelope" style="padding-right: 4px;"></i>
-            Invite a friend to this event:</p>
-            <%= render "invite_form" %>
+            <% end %>
           <% end %>
-        <% end %>
-      <% else %>
-        <p style="padding-top: 7px; padding-bottom: 12px;">
-          <i class="fas fa-lock" style="padding-right: 2px;"></i>
-          To start enjoying Jazz-Brite,
-          <%= link_to "Log In", new_user_session_path %>
-          or
-          <%= link_to "Create an Account", new_user_registration_path %></p>
-      <% end %>
 
-      <p style="margin-bottom: 4px; padding-top: 15px;"><span class="event-attr"> 
-        <% if @event.attendees.any? %>
-          Attendees (<span id="count"><%= @event.attendees.count %></span>):
-        <% else %>
-          Attendees:
-        <% end %></span></p>
-      <div id="attending">
-        <%= render "attendee_list" %>
+            <p class="attendees" ><span class="event-attr">
+              <% if @event.attendees.any? %>
+                Attendees (<span id="count"><%= @event.attendees.count %></span>):
+              <% else %>
+                Attendees:
+              <% end %></span>
+            </p>
+            <div id="attending">
+              <%= render "attendee_list" %>
+            </div>
+          </div>
+
+          <div class="col-xs-6">
+            <% if current_user && @event.date >= Time.zone.now %>
+              <p>
+                <i class="fas fa-envelope"></i>
+                Invite a friend:</p>
+              <%= render "invite_form" %>
+            <% end %>
+          </div>
       </div>
     </div>
   </div>

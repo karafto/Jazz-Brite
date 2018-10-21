@@ -12,8 +12,8 @@ class EventsInterfaceTest < ActionDispatch::IntegrationTest
   test "event display when not logged in" do
     get event_path(@event)
     assert_select "a[href=?]", user_path(@event.user), text: @user.name
-    assert_select "a[href=?]", new_user_registration_path, text: "Create an Account"
-    assert_select "a[href=?]", new_user_session_path, text: "Log In"
+    assert_select "a[href=?]", new_user_registration_path, text: "Create an account"
+    assert_select "a[href=?]", new_user_session_path, text: "Log in"
     assert_select "a[href=?]", edit_event_path(@event), count: 0
     assert_select "a[href=?]", event_path(@event), text: "Delete", count: 0
   end

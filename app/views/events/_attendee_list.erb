@@ -1,8 +1,8 @@
 <% if @event.attendees.any? %>
   <% @event.attendees.each do |attendee| %>
-    <li class="attendees">
+    <li class="list-attendees">
     <%= link_to attendee.name, attendee %></li>
   <% end %>
 <% else %>
-  <p>(no attendees)</p>
+  <p style="margin-left: 10px">(no attendees)</p>
 <% end %>
