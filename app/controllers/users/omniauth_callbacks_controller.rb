@@ -5,7 +5,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
     if @user.persisted?
       respond_to do |format|
-        format.html
+        format.html { sign_in_and_redirect @user, event: :authentication }
+        format.js
         format.json { render json: @user }
       end
     else
