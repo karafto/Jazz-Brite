@@ -27,6 +27,21 @@
          fjs.parentNode.insertBefore(js, fjs);
        }(document, 'script', 'facebook-jssdk'));
     </script>
+    <script type="text/javascript">
+      $('a').click(function(e) {
+        e.preventDefault();
+        FB.login(function(response) {
+          console.log(response);
+          if (response.authResponse) {
+            $('#connect').html('Connected! Hitting OmniAuth callback (GET /auth/facebook/callback)...');
+            $.getJSON('/auth/facebook/callback', function(json) {
+              $('#connect').html('Connected! Callback complete.');
+              $('#results').html(JSON.stringify(json));
+            });
+          }
+        });
+      });
+    </script>
 
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container-fluid">
