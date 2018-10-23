@@ -9,40 +9,6 @@
   </head>
 
   <body>
-    <script>
-      window.fbAsyncInit = function() {
-        FB.init({
-          appId      : '2184093665190920',
-          xfbml      : true,
-          version    : 'v3.1'
-        });
-        FB.AppEvents.logPageView();
-      };
-
-      (function(d, s, id){
-         var js, fjs = d.getElementsByTagName(s)[0];
-         if (d.getElementById(id)) {return;}
-         js = d.createElement(s); js.id = id;
-         js.src = "https://connect.facebook.net/en_US/sdk.js";
-         fjs.parentNode.insertBefore(js, fjs);
-       }(document, 'script', 'facebook-jssdk'));
-    </script>
-    <script type="text/javascript">
-      $('a').click(function(e) {
-        e.preventDefault();
-        FB.login(function(response) {
-          console.log(response);
-          if (response.authResponse) {
-            $('#connect').html('Connected! Hitting OmniAuth callback (GET /auth/facebook/callback)...');
-            $.getJSON('/users/auth/facebook/callback', function(json) {
-              $('#connect').html('Connected! Callback complete.');
-              $('#results').html(JSON.stringify(json));
-            });
-          }
-        });
-      });
-    </script>
-
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
