@@ -17,7 +17,7 @@
               <p><%= pluralize(event.attendees.count, 'Person') + ' going' if event.attendees.any? %>
                 <% if event.distance_from_visitor %>
                   <span class="distance"><i class="fas fa-map-marker-alt"></i>
-                  <%= event.distance_from_visitor.round(1) %> miles</span>
+                  <%= event.distance_from_visitor.round(1) %> miles away</span>
                 <% else %>
                   <% if event.attendees.count > 3 %>
                     <span class="popular"><span class="glyphicon glyphicon-star"></span> Popular</span>
