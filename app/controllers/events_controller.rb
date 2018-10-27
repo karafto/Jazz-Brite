@@ -19,11 +19,12 @@ class EventsController < ApplicationController
     @past_events = Event.past
     @upcoming_events = Event.upcoming
     if Rails.env.development? || Rails.env.test?
-      location = [34.05223, -118.24368]
+      user_location = [34.05223, -118.24368]
     else
-      location = request.location.coordinates
+      user_location = request.location.coordinates
     end
-    @nearby_events = Event.upcoming.near(location, 100)
+
+    @nearby_events = Event.upcoming.near(user_location, 100)
     @nearby_events.each do | event |
       event.distance_from_visitor = event.distance
     end
@@ -31,6 +32,17 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    if Rails.env.development? || Rails.env.test?
+      @user_city = 'Los Angeles'
+      @user_state = 'California'
+      @user_postal_code = 90012
+    else
+      user_location = request.location
+      @user_city = user_location.city
+      @user_state = user_location.state
+      @user_postal_code = user_location.postal_code
+    end
+
     if @event.date < Time.zone.now
       flash.now[:info] = "This event has ended."
     else
