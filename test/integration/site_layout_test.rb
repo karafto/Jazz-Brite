@@ -6,13 +6,12 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     get root_path
     assert_template 'static_pages/home'
     assert_select "a[href=?]", root_path, text: "Jazz-Brite"
-    assert_select "a[href=?]", events_path, text: "Attend Events"
     assert_select "a[href=?]", events_path, text: "Browse Events"
-    assert_select "a[href=?]", events_path, text: "Start exploring"
-    assert_select "a[href=?]", new_event_path, text: "Create Events"
     assert_select "a[href=?]", new_event_path, text: "Create Event"
-    assert_select "a[href=?]", new_user_registration_path, text: "Sign Up"
-    assert_select "a[href=?]", new_user_session_path, text: "Log In"
+    assert_select "a[href=?]", new_user_session_path, text: "Go to Demo login"
+    assert_select "a[href=?]", events_path, text: "Explore Jazz"
+    assert_select "a[href=?]", events_path, text: "Invite Friends"
+    assert_select "a[href=?]", new_user_session_path, text: "Log In", count: 2
     get events_path
     assert_select "a[href=?]", "#past", text: "Past Events"
     assert_select "a[href=?]", "#near", text: "Upcoming Near You"

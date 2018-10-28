@@ -1,7 +1,7 @@
 <body class="home-page">
   <div class="background">
     <h1>Find your next jazz experience
-      <p><%= link_to "Start exploring", events_path, class: "btn btn-secondary btn-lg home-button" %></p>
+      <p><%= link_to "Go to Demo login", new_user_session_path, class: "btn btn-secondary btn-lg home-button" %></p>
     </h1>
   </div>
 
@@ -9,18 +9,18 @@
     <div class="row">
       <div class="col-md-4 text-center">
         <i class="fas fa-music" ></i>
-        <h3><%= link_to "Attend Events", events_path %></h3>
-        <p>Browse and RSVP for live jazz!</p>
-      </div>
-      <div class="col-md-4 text-center">
-        <i class="fas fa-calendar" ></i>
-        <h3><%= link_to "Create Events", new_event_path %></h3>
-        <p>And instantly send email invites!</p>
+        <h3><%= link_to "Explore Jazz", events_path %></h3>
+        <p>Browse and RSVP for live events!</p>
       </div>
       <div class="col-md-4 text-center">
         <i class="fas fa-users" ></i>
-        <h3><%= link_to "Sign Up", new_user_registration_path %></h3>
-        <p>It's easy to get started.</p>
+        <h3><%= link_to "Invite Friends", events_path %></h3>
+        <p>Instantly send email invites!</p>
+      </div>
+      <div class="col-md-4 text-center">
+        <i class="fas fa-sign-in-alt" ></i>
+        <h3><%= link_to "Log In", new_user_session_path %></h3>
+        <p>Try it out as a Demo user!</p>
       </div>
     </div>
   </div>
