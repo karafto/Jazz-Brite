@@ -172,7 +172,9 @@ p {
   box-shadow: 0 2px 20px 0 rgba(0,0,0,.1);
   border-radius: 12px;
   margin-top: 40px;
-  padding-bottom: 20px;
+  padding-bottom: 12px;
+  padding-left: 100px;
+  padding-right: 100px;
 
   h2 {
     padding-top: 45px;
@@ -205,20 +207,17 @@ p {
 #error_explanation {
   text-align: center;
   h2 {
-    color: #3c3e44;
+    color: #ed0909;
     font-size: 14px;
     font-weight: 700;
-    margin-top: -10px;
+    margin-top: -30px;
     margin-bottom: -10px;
   }
   ul {
-    color: #3c3e44;
+    color: #ed0909;
     font-size: 14px;
-    font-weight: 700;
-    margin-bottom: 26px;
-    list-style-position: inside;
+    margin-bottom: 16px;
     text-align: left;
-    margin-left: 85px;
   }
 }
 
@@ -455,7 +454,7 @@ p {
   margin-bottom: 10px;
 }
 
-.fa-envelope, .fa-edit, .fa-external-link-alt {
+.fa-envelope, .fa-edit, .fa-external-link-alt, .fa-lock {
   position: relative;
   top: 1px;
   padding-right: 4px;
@@ -464,6 +463,12 @@ p {
 
 .fa-edit {
   top: 0px;
+}
+
+.fa-lock {
+  padding-right: 2px;
+  font-size: 18px;
+  top: -1px;
 }
 
 .fa-external-link-alt {

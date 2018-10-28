@@ -14,5 +14,16 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", new_user_registration_path, text: "Sign Up"
     assert_select "a[href=?]", new_user_session_path, text: "Log In"
     get events_path
+    assert_select "a[href=?]", "#past", text: "Past Events"
+    assert_select "a[href=?]", "#near", text: "Upcoming Near You"
+    assert_select "a[href=?]", "#upcoming", text: "Upcoming Events"
+    get new_user_registration_path
+    assert_select "a[href=?]", user_facebook_omniauth_authorize_path, text: "Continue with Facebook"
+    assert_select "a[href=?]", new_user_session_path, text: "Log in"
+    get new_user_session_path
+    assert_select "a[href=?]", user_facebook_omniauth_authorize_path, text: "Continue with Facebook"
+    assert_select "a[href=?]", new_user_registration_path, text: "Create an account"
+    assert_select "a[href=?]", new_user_password_path, text: "(Forgot your password?)"
   end
 end
+
