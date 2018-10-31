@@ -5,11 +5,11 @@ event_1:
   date: <%= 1.days.from_now %>
   user: kevin
 
-event_2:
+past_event:
   description: "description"
   title: "title"
   location: "location"
-  date: <%= 1.days.from_now %>
+  date: <%= 1.days.ago %>
   user: kevin
 
 event_3:

@@ -13,33 +13,33 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :title %><br>
     <%= f.text_field :title, autofocus: true, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :description %><br>
     <%= f.text_area :description, style: "resize: true;", rows: "4", class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :location %><br>
     <%= f.text_field :location, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :date %><br>
     <%= f.datetime_select :date, options = { ampm: true, minute_step: 5, start_year: Date.today.year, end_year: Date.today.year + 5, order: [:month, :day, :year], default: Time.zone.now } %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
   <%= f.label :picture %><br>
   <%= f.file_field :picture, accept: 'image/jpg,image/jpeg,image/gif,image/png', class: "btn" %>
 </div>
 
   <div class="actions">
-    <%= f.submit button, class: "btn btn-lg btn-dark" %>
+    <p><%= f.submit button, class: "btn btn-lg btn-dark" %></p>
   </div>
 
 <% end %>

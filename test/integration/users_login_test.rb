@@ -25,7 +25,6 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     post user_session_path
     follow_redirect!
     assert_select 'div.alert'
-    assert_select 'a[href=?]', new_user_session_path, count: 0
     assert_select 'a[href=?]', '#', text: @user.name
     assert_select 'a[href=?]', edit_user_registration_path, text: "Edit Account"
     assert_select 'a[href=?]', user_path(@user), text: "My Profile"

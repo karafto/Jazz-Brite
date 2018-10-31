@@ -6,14 +6,14 @@
         <h2>Log In</h2>
 
         <%- resource_class.omniauth_providers.each do |provider| %>
-                  <p><%= link_to omniauth_authorize_path(resource_name, provider), class: "btn btn-lg btn-dark" do %>
-                      <i class="fab fa-facebook-f"></i>
-                      <%= "Continue with #{OmniAuth::Utils.camelize(provider)}" %>
-                    <% end %>
-                  </p>
-                <% end -%>
+          <p><%= link_to omniauth_authorize_path(resource_name, provider), class: "btn btn-lg btn-dark" do %>
+              <i class="fab fa-facebook-f"></i>
+              <%= "Continue with #{OmniAuth::Utils.camelize(provider)}" %>
+            <% end %>
+          </p>
+        <% end -%>
 
-        <p style="padding-top: 6px";>For Demo login, continue with:</p>
+        <p style="padding-top: 10px";>For Demo login, continue with:</p>
 
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 

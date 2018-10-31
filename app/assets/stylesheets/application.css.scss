@@ -170,7 +170,6 @@ p {
 .form-box {
   background-color: white;
   box-shadow: 0 2px 20px 0 rgba(0,0,0,.1);
-  border-radius: 12px;
   margin-top: 40px;
   padding-bottom: 12px;
   padding-left: 100px;
@@ -179,6 +178,9 @@ p {
   h2 {
     padding-top: 45px;
     padding-bottom: 24px;
+  }
+  .alert {
+    width: 100%;
   }
 }
 

@@ -25,7 +25,6 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     end
     follow_redirect!
     assert_select 'div.alert'
-    assert_select 'a[href=?]', new_user_session_path, count: 0
     assert_select 'a[href=?]', destroy_user_session_path, text: "Log Out"
   end
 end

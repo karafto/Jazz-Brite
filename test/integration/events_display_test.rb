@@ -9,12 +9,16 @@ class EventsInterfaceTest < ActionDispatch::IntegrationTest
     @other_user = users(:alex)
   end
 
-  test "event display when not logged in" do
+  test "upcoming and past event display when not logged in" do
     get event_path(@event)
     assert_select "a[href=?]", user_path(@event.user), text: @user.name
     assert_select "a[href=?]", new_user_session_path, text: "Log in"
     assert_select "a[href=?]", edit_event_path(@event), count: 0
     assert_select "a[href=?]", event_path(@event), text: "Delete", count: 0
+    assert flash.empty?
+    past_event = events(:past_event)
+    get event_path(past_event)
+    assert_not flash.empty?
   end
 
   test "event display when logged in followed by display of wrong event" do
