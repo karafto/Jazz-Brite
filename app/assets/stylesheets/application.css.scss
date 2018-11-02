@@ -436,10 +436,14 @@ p {
   h2, p {
     text-align: left;
   }
+  h2 {
+    line-height: 1.7em
+  }
 }
 
 .event-header {
-  line-height: 2.3em;
+  margin-top: 20px;
+  margin-bottom: 15px;
 }
 
 .event-attr {
