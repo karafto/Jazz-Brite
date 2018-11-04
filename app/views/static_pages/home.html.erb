@@ -1,7 +1,11 @@
 <body class="home-page">
   <div class="background">
     <h1>Find your next jazz experience
-      <p><%= link_to "Go to Demo login", new_user_session_path, class: "btn btn-secondary btn-lg home-button" %></p>
+      <% if user_signed_in? %>
+        <p><%= link_to "Start exploring", events_path, class: "btn btn-secondary btn-lg home-button" %></p>
+      <% else %>
+        <p><%= link_to "Go to Demo login", new_user_session_path, class: "btn btn-secondary btn-lg home-button" %></p>
+      <% end %>
     </h1>
   </div>
 
@@ -18,9 +22,15 @@
         <p>Instantly send email invites!</p>
       </div>
       <div class="col-md-4 text-center">
-        <i class="fas fa-sign-in-alt" ></i>
-        <h3><%= link_to "Log In", new_user_session_path %></h3>
-        <p>Try it out as a Demo user!</p>
+        <% if user_signed_in? %>
+          <i class="fas fa-calendar" ></i>
+          <h3><%= link_to "Create Events", new_event_path %></h3>
+          <p>Generate buzz right away!</p>
+        <% else %>
+          <i class="fas fa-sign-in-alt" ></i>
+          <h3><%= link_to "Log In", new_user_session_path %></h3>
+          <p>Try it out as a Demo user!</p>
+        <% end %>
       </div>
     </div>
   </div>

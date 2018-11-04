@@ -76,10 +76,15 @@ a:focus, a:hover, a:active {
   background-size: cover;
 }
 
-.fa-music, .fa-sign-in-alt, .fa-users {
+.fa-music, .fa-sign-in-alt, .fa-users, .fa-calendar {
   font-size: 37px;
   color: hsl(0, 0%, 20%);
   padding-bottom: 6px;
+}
+
+.fa-calendar {
+  font-size: 35px;
+  padding-top: 2px;
 }
 
 .fa-facebook-f {

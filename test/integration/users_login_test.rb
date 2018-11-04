@@ -29,6 +29,9 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     assert_select 'a[href=?]', edit_user_registration_path, text: "Edit Account"
     assert_select 'a[href=?]', user_path(@user), text: "My Profile"
     assert_select 'a[href=?]', destroy_user_session_path, text: "Log Out"
+    get root_path
+    assert_select 'a[href=?]', events_path, count: 4
+    assert_select 'a[href=?]', new_event_path, count: 2
     get user_path(@user)
     delete destroy_user_session_path
     assert_redirected_to events_path
