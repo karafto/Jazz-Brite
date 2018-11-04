@@ -39,30 +39,45 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # PUT /resource
   def update
-    self.resource = resource_class.to_adapter.get!(send(:"current_#{resource_name}").to_key)
-    prev_unconfirmed_email = resource.unconfirmed_email if resource.respond_to?(:unconfirmed_email)
+    if current_user.name != "Demo User"
+      self.resource = resource_class.to_adapter.get!(send(:"current_#{resource_name}").to_key)
+      prev_unconfirmed_email = resource.unconfirmed_email if resource.respond_to?(:unconfirmed_email)
 
-    resource_updated = update_resource(resource, account_update_params)
-    yield resource if block_given?
-    if resource_updated
-      if is_flashing_format?
-        flash_key = update_needs_confirmation?(resource, prev_unconfirmed_email) ?
-          :update_needs_confirmation : :updated
-        set_flash_message :success, flash_key
+      resource_updated = update_resource(resource, account_update_params)
+      yield resource if block_given?
+
+      if resource_updated
+        if is_flashing_format?
+          flash_key = update_needs_confirmation?(resource, prev_unconfirmed_email) ?
+            :update_needs_confirmation : :updated
+          set_flash_message :success, flash_key
+        end
+        bypass_sign_in resource, scope: resource_name
+        respond_with resource, location: after_update_path_for(resource)
+      else
+        clean_up_passwords resource
+        set_minimum_password_length
+        respond_with resource
       end
-      bypass_sign_in resource, scope: resource_name
-      respond_with resource, location: after_update_path_for(resource)
     else
-      clean_up_passwords resource
-      set_minimum_password_length
-      respond_with resource
+      flash[:info] = "The Demo User account is not eligible for editing!"
+      redirect_to events_path
     end
   end
 
   # DELETE /resource
-  # def destroy
-  #   super
-  # end
+  def destroy
+    if current_user.name != "Demo User"
+      resource.destroy
+      Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name)
+      set_flash_message! :notice, :destroyed
+      yield resource if block_given?
+      respond_with_navigational(resource){ redirect_to after_sign_out_path_for(resource_name) }
+    else
+      flash[:info] = "The Demo User account is not eligible for cancellation!"
+      redirect_to events_path
+    end
+  end
 
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign
