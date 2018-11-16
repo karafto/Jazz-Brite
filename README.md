@@ -13,8 +13,8 @@ Users can:
 * Instantly send email invitations
 * Receive email invitations and follow a link to RSVP
 * RSVP for events and get added to a list of attendees
+* Discover which events are happening nearby
 * View event locations and directions in Google Maps
-* See which events are happening nearby
 * Request emails with a link for password reset
 
 ## Technologies
@@ -24,7 +24,7 @@ Users can:
 * Bootstrap
 * AWS (S3)
 * SendGrid
-* Selected Gems:
+* Gems include:
   * Devise
   * OmniAuth
   * CarrierWave
