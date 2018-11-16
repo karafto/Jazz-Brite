@@ -4,6 +4,8 @@ Jazz-themed events app inspired by Facebook Events
 
 See it live: https://jazz-brite.herokuapp.com
 
+Try it out as a Demo user!
+
 ## Features
 
 Users can:
