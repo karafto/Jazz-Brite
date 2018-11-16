@@ -21,6 +21,7 @@ Users can:
 
 * Ruby on Rails
 * PostgreSQL
+* Heroku
 * jQuery / AJAX
 * Bootstrap
 * AWS (S3)
