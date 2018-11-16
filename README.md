@@ -1,6 +1,6 @@
 # Jazz-Brite
 
-Jazz-themed events app
+Jazz-themed events app inspired by Facebook Events
 
 See it live: https://jazz-brite.herokuapp.com
 
@@ -16,6 +16,19 @@ Users can:
 * View event locations and directions in Google Maps
 * See which events are happening nearby
 * Request emails with a link for password reset
+
+## Technologies
+
+* Ruby on Rails
+* jQuery / AJAX
+* Bootstrap
+* AWS (S3)
+* SendGrid
+* Selected Gems:
+  * Devise
+  * OmniAuth
+  * CarrierWave
+  * Geocoder
 
 ## Local Environment Setup
 
