@@ -1,16 +1,21 @@
 # Jazz-Brite
 
-An Eventbrite clone, but for jazz. With Ruby on Rails.
+Jazz-themed events app
 
 See it live: https://jazz-brite.herokuapp.com
 
-* [Devise](https://github.com/plataformatec/devise) gem for authentication and authorization
+## Features
 
-* [CarrierWave](https://github.com/carrierwaveuploader/carrierwave) gem for image uploading
+Users can:
 
-* [Amazon S3](https://aws.amazon.com/s3/) for image storage in production
-
-* Thorough testing with Minitest
+* Log in with Facebook, or choose to create an account
+* Create events and upload event pictures
+* Instantly send email invitations
+* Receive email invitations and follow a link to RSVP
+* RSVP for events and get added to a list of attendees
+* View event locations and directions in Google Maps
+* See which events are happening nearby
+* Request emails with a link for password reset
 
 ## Local Environment Setup
 
