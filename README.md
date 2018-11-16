@@ -20,6 +20,7 @@ Users can:
 ## Technologies
 
 * Ruby on Rails
+* PostgreSQL
 * jQuery / AJAX
 * Bootstrap
 * AWS (S3)
@@ -29,6 +30,7 @@ Users can:
   * OmniAuth
   * CarrierWave
   * Geocoder
+  * Font-Awesome Sass
 
 ## Local Environment Setup
 
