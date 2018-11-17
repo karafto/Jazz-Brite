@@ -12,6 +12,7 @@ Users can:
 
 * Log in with Facebook, or choose to create an account
 * Create events and upload event pictures
+* Browse events and view event details
 * Instantly send email invitations
 * Receive email invitations and follow a link to RSVP
 * RSVP for events and get added to a list of attendees
