@@ -1,6 +1,6 @@
 # Jazz-Brite
 
-Jazz-themed events app inspired by Facebook Events
+**A jazz-themed events app inspired by Facebook Events.**
 
 See it live: https://jazz-brite.herokuapp.com
 
