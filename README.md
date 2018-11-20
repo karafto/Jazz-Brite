@@ -40,7 +40,7 @@ Users can:
 
 Check that (a) Ruby, (b) Rails, and (c) Git are installed on your machine
 
-Clone the repo: `$ git clone https://github.com/karafto/Jazz-Brite.git`
+Clone the repo: `$ git clone https://github.com/karafto/jazz-brite.git`
 
 Install gems: `$ bundle`
 
