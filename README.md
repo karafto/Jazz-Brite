@@ -23,13 +23,14 @@ Today's jazz scene includes tons of exciting new artists, while numerous masters
 ## Technologies
 
 * Built atop Ruby on Rails, a PostgreSQL database, and the Heroku platform.
-* Looks up event addresses and sets latitude and longitude via the Google Geocoding API.
+* Looks up event addresses and sets their latitude and longitude via the Google Geocoding API.
 * Locates users according to their IP address by using the IPinfo API, allowing the app to highlight upcoming events in the user's local area.
 * Combines event and user location data through the Google Maps API, giving users an external link to view directions on Google's site.
-* Enables users to login with their Facebook credentials by connecting to the Facebook OAuth API, so that users can skip creating a brand new account.
+* Enables users to log in with their Facebook credentials by connecting to the Facebook OAuth API, so that users can skip creating a brand new account.
 * Integrates Amazon Web Services (AWS) S3 Bucket to store uploaded images and serve them back to the application.
 * Delivers email invitations to inboxes with assistance from SendGrid.
 * When users RSVP for events, dynamically modifies the layout via jQuery and AJAX.
+* Incorporates New Relic for performance monitoring and availability alerts.
 
 ## Local Environment Setup
 
