@@ -28,21 +28,20 @@ Today's jazz scene includes tons of exciting new artists, while numerous masters
 * Combines event and user location data through the Google Maps API, giving users an external link to view directions on Google's site.
 * Enables users to login with their Facebook credentials by connecting to the Facebook OAuth API, so that users can skip creating a brand new account.
 * Integrates Amazon Web Services (AWS) S3 Bucket to store uploaded images and serve them back to the application.
-* Email invitations are delivered to inboxes with assistance from SendGrid.
+* Delivers email invitations to inboxes with assistance from SendGrid.
 * When users RSVP for events, dynamically modifies the layout via jQuery and AJAX.
 
 ## Local Environment Setup
 
-1. Check that (a) Ruby, (b) Rails, and (c) Git are installed on your machine
-2. Clone the repo: `$ git clone https://github.com/karafto/jazz-brite.git`
-3. Move into the new directory: `$ cd jazz-brite`
-4. Install gems: `$ bundle install`
-5. Migrate the database: `$ rails db:migrate RAILS_ENV=test`
-6. Run the test suite: `$ rails test`
-7. Run the app: `$ rails server`
+1. Clone the repo: `$ git clone https://github.com/karafto/jazz-brite.git`
+2. Move into the new directory: `$ cd jazz-brite`
+3. Install gems: `$ bundle install`
+4. Migrate the database: `$ rails db:migrate RAILS_ENV=test`
+5. Run the test suite: `$ rails test`
+6. Run the app: `$ rails server`
 
 ## Future Directions
 
 * Commenting and liking on events
-* For signed-up users, inviting via internal notifications
+* For signed-up users, inviting by internal notifications
 * Ability to make events private
