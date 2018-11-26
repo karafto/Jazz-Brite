@@ -8,32 +8,29 @@ Today's jazz scene includes tons of exciting new artists, while numerous masters
 
 <br />
 
-![Jazz-Brite](app/assets/images/browsing.gif)
+![Jazz-Brite](app/assets/images/browsing_2.gif)
 
 ## Features
 
 * Log in with Facebook credentials, or choose to create an account
-* Create events and upload event pictures
-* Browse events and view event details
-* Instantly send email invitations, rapid-fire style
+* Create and edit events, and upload event pictures
+* Send email invitations with a single click
 * Receive email invitations and follow a link to RSVP
-* RSVP for events and get added to a list of attendees
 * Discover which events are happening near your browsing location
 * View event locations and directions in Google Maps
 * Request emails with a link for password reset
-* Edit your account and edit events you've created
 
 ## Technologies
 
 * Jazz-Brite was built atop Ruby on Rails, a PostgreSQL database, and the Heroku platform.
-* The Google Geocoding API looks up event addresses and sets the latitude and longitude.
-* The IPinfo API locates users according to their IP address, thus allowing the app to highlight upcoming events in the user's local area.
-* The Google Maps API combines event and user location data, giving users an external link to view directions on Google's site.
-* The Facebook OAuth API enables users to login with their Facebook credentials and skip the hassle of creating a brand new account.
-* To let users upload event pictures, Amazon Web Services (AWS) S3 Bucket stores images and serves them back to the application.
-* After an email invitation is sent, SendGrid delivers the email on behalf of the site.
-* Bootstrap was utilized for general styling and for making the interface responsive across a wide variety of desktop and tablet devices.
-* jQuery and AJAX let users transfer data to the server and immediately view a modified layout—all without leaving an event page. Activated during RSVPs for events, updates to the list of attendees, and updates to the attendee count.
+* Looks up event addresses and sets latitude and longitude via the Google Geocoding API.
+* Locates users according to their IP address by using the IPinfo API, allowing the app to highlight upcoming events in the user's local area.
+* Combines event and user location data through the Google Maps API, giving users an external link to view directions on Google's site.
+* Enables users to login with their Facebook credentials by connecting to the Facebook OAuth API, thus skipping the hassle of creating a brand new account.
+* Integrates Amazon Web Services (AWS) S3 Bucket to store uploaded images and serve them back to the application.
+* When an email invitation is sent, accomplishes delivery with assistance from SendGrid.
+* When users RSVP for events, dynamically modifies the layout by activating jQuery and AJAX.
+* The UI is sprinkled with Bootstrap for a clean design that's responsive across a wide variety of desktop and tablet devices.
 
 ## Local Environment Setup
 
