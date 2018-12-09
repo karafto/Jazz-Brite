@@ -34,8 +34,8 @@ Today's jazz scene includes tons of exciting new artists, while numerous masters
 
 ## Local Environment Setup
 
-1. Clone the repo: `$ git clone https://github.com/karafto/jazz-brite.git`
-2. Move into the new directory: `$ cd jazz-brite`
+1. Clone the repo: `$ git clone https://github.com/karafto/jazzbrite.git`
+2. Move into the new directory: `$ cd jazzbrite`
 3. Install gems: `$ bundle install`
 4. Migrate the database: `$ rails db:migrate RAILS_ENV=test`
 5. Run the test suite: `$ rails test`
