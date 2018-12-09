@@ -9,6 +9,6 @@ class InviteMailer < ApplicationMailer
     @url = event_url(invite.event_id)
     @name = name
     @event = invite.event_name
-    mail to: invite.recipient_email, subject: "Jazz-Brite: New Invitation from #{name}"
+    mail to: invite.recipient_email, subject: "Jazzbrite: New Invitation from #{name}"
   end
 end

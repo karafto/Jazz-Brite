@@ -1,10 +1,10 @@
-# Jazz-Brite
+# Jazzbrite
 
 **A jazz-themed web application inspired by Facebook Events.**
 
 [See it live!](https://jazz-brite.herokuapp.com)
 
-Today's jazz scene includes tons of exciting new artists, while numerous masters of the classic era continue to enrich and entertain. Jazz-Brite aims to provide a hub for sharing and exploring live happenings for what many call "America's premier art form".
+Today's jazz scene includes tons of exciting new artists, while numerous masters of the classic era continue to enrich and entertain. Jazzbrite aims to provide a hub for sharing and exploring live happenings for what many call "America's premier art form".
 
 <br />
 
